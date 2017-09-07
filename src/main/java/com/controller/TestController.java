@@ -6,6 +6,7 @@ import com.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class TestController {
@@ -17,7 +18,12 @@ public class TestController {
         return "test";
     }
 
+    @RequestMapping("/str")
+    public String str(){
+        return "string";
+    }
     @RequestMapping("/go")
+    @ResponseBody
     public User go(){
         User u = new User();
         u.setAccount("123");
