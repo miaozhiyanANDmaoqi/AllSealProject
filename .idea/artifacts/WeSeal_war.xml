@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="WeSeal:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="WeSeal.war">
-      <element id="artifact" artifact-name="WeSeal:war exploded" />
-    </root>
-  </artifact>
-</component>
