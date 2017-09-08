@@ -14,13 +14,10 @@
 
     <!-- 本地Bootstrap -->
     <%--<%String path = request.getContextPath(); %>--%>
-    <%--<link href="${path}/css/bootstrap.min.css" rel="stylesheet">--%>
+    <%--<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />--%>
 
 </head>
-<srcipt type="text/javascript">
-    var s = "a";
-    alert("ok");
-</srcipt>
+
 <body style="background: url(WEB-INF/img/woodenbg.jpg);  text-align:center">
 <!--导航栏-->
 <nav class="navbar navbar-default">
@@ -79,7 +76,7 @@
 <!--导航栏结束-->
 
 <h1>
-    <img src="img/woodenbg.jpg"/>
+    <img src="WEB-INF/img/woodenbg.jpg"/>
 </h1>
 <a href="test">跳转页面</a>
 
@@ -89,3 +86,9 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <%--<script src="js/bootstrap.min.js"></script>--%>
 </body>
+<script type="text/javascript">
+    var str = "a";var n=2;
+    alert("ok");
+    alert(n);
+    alert(String(n));
+</script>
