@@ -6,19 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>买买买！</title>
-
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">　
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-    <!-- 本地Bootstrap -->
-    <%--<%String path = request.getContextPath(); %>--%>
-    <%--<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />--%>
-
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+     <!--  Bootstrap 核心 JavaScript 文件 -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- 本地Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
 </head>
 
-<body style="background: url(WEB-INF/img/woodenbg.jpg);  text-align:center">
+<body style="background: url(img/woodenbg.jpg);  text-align:center">
 <!--导航栏-->
 <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -32,12 +28,11 @@
             </button>
             <a class="navbar-brand" href="#">买买买网</a>
         </div>
-
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Link 1<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Link2</a></li>
+                <li class="active"><a href="#">用户名<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">我的账户</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -58,7 +53,7 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
+                <li><a href="#">登录</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -75,20 +70,46 @@
 </nav>
 <!--导航栏结束-->
 
-<h1>
-    <img src="WEB-INF/img/woodenbg.jpg"/>
-</h1>
 <a href="test">跳转页面</a>
 
+<select id="select1">
+    <option  value="1">111</option>
+    <option  value="2">222</option>
+    <option  value="3">333</option>
+</select>
+<select id="select2">
+    <option value="1">1111111</option>
+    <option value="2">2222222</option>
+    <option value="3">3333333</option>
+</select>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<%--<script src="js/bootstrap.min.js"></script>--%>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
 </body>
 <script type="text/javascript">
-    var str = "a";var n=2;
-    alert("ok");
-    alert(n);
-    alert(String(n));
+
+    var se1 = document.getElementById("select1");
+    var se2 = document.getElementById("select2");
+    se1.onchange=function() {
+        switch (se1.value){
+            case '1':
+                se2.innerHTML="<option>议一议</option><option>议一111议</option>";
+                break;
+            case '2':
+                se2.innerHTML="";
+                break;
+            case'3':
+                se2.innerHTML="<option>议3333议</option><option>33议</option>";
+                break;
+            default:
+                alert("error");
+        }
+//        if(se1.value == 1){
+//            se2.innerHTML="<option>议一议</option><option>议一111议</option>";
+//        }else if(se1.value == 2){
+//            se2.innerHTML="";
+//        }else if(se1.value == 3){
+//            se2.innerHTML="<option>议3333议</option><option>33议</option>";
+//        }
+    }
 </script>
