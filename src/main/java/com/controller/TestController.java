@@ -17,11 +17,12 @@ public class TestController {
     public String test(){
         return "test";
     }
-
     @RequestMapping("/str")
+    @ResponseBody
     public String str(){
         return "string";
     }
+
     @RequestMapping("/go")
     @ResponseBody
     public User go(){

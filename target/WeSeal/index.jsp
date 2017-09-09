@@ -31,8 +31,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">用户名<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">我的账户</a></li>
+                <li class="active"><a href="#">首页<span class="sr-only">(current)</span></a></li>
+                <li ><a href="register">注册</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -55,13 +55,13 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">登录</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的帐户 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">个人信息</a></li>
+                        <li><a href="#">我的好友</a></li>
+                        <li><a href="#">买卖记录</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="#">退出登录</a></li>
                     </ul>
                 </li>
             </ul>
@@ -70,7 +70,7 @@
 </nav>
 <!--导航栏结束-->
 
-<a href="test">跳转页面</a>
+<a href="/test">跳转页面</a>
 
 <select id="select1">
     <option  value="1">111</option>
@@ -88,28 +88,21 @@
 </body>
 <script type="text/javascript">
 
-    var se1 = document.getElementById("select1");
-    var se2 = document.getElementById("select2");
-    se1.onchange=function() {
-        switch (se1.value){
-            case '1':
-                se2.innerHTML="<option>议一议</option><option>议一111议</option>";
-                break;
-            case '2':
-                se2.innerHTML="";
-                break;
-            case'3':
-                se2.innerHTML="<option>议3333议</option><option>33议</option>";
-                break;
-            default:
-                alert("error");
-        }
-//        if(se1.value == 1){
-//            se2.innerHTML="<option>议一议</option><option>议一111议</option>";
-//        }else if(se1.value == 2){
-//            se2.innerHTML="";
-//        }else if(se1.value == 3){
-//            se2.innerHTML="<option>议3333议</option><option>33议</option>";
+//    var se1 = document.getElementById("select1");
+//    var se2 = document.getElementById("select2");
+//    se1.onchange=function() {
+//        switch (se1.value){
+//            case '1':
+//                se2.innerHTML="<option>议一议</option><option>议一111议</option>";
+//                break;
+//            case '2':
+//                se2.innerHTML="";
+//                break;
+//            case'3':
+//                se2.innerHTML="<option>议3333议</option><option>33议</option>";
+//                break;
+//            default:
+//                alert("error");
 //        }
-    }
+//    }
 </script>
