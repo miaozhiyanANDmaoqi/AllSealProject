@@ -12,8 +12,14 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <!--<context:component-scan base-package="com.controller"/>-->
-    <bean class="com.controller.TestController"/>
+    <context:component-scan base-package="com.controller"/>
+
+    <!--&lt;!&ndash;让web context发现根context中的bean &ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">-->
+        <!--<property name="detectHandlerMethodsInAncestorContexts">-->
+            <!--<value>true</value>-->
+        <!--</property>-->
+    <!--</bean>-->
 
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
@@ -44,6 +50,4 @@
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/"
           p:suffix=".jsp"/>
-
-
 </beans>

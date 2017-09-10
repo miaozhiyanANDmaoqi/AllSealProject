@@ -31,8 +31,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">首页<span class="sr-only">(current)</span></a></li>
-                <li ><a href="register">注册</a></li>
+                <li id="indexId"><a href="#">首页<span class="sr-only">(current)</span></a></li>
+                <li id="registerId" ><a href="register">注册</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -53,12 +53,12 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">登录</a></li>
+                <li id="loginId"><a href="#">登录</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的帐户 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">个人信息</a></li>
-                        <li><a href="#">我的好友</a></li>
+                        <li><a href="#">我的消息</a></li>
                         <li><a href="#">买卖记录</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="#">退出登录</a></li>
@@ -71,38 +71,31 @@
 <!--导航栏结束-->
 
 <a href="/test">跳转页面</a>
-
-<select id="select1">
-    <option  value="1">111</option>
-    <option  value="2">222</option>
-    <option  value="3">333</option>
-</select>
-<select id="select2">
-    <option value="1">1111111</option>
-    <option value="2">2222222</option>
-    <option value="3">3333333</option>
-</select>
+<a href="http://www.baidu.com">http://www.baidu.com</a>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
 </body>
 <script type="text/javascript">
-
-//    var se1 = document.getElementById("select1");
-//    var se2 = document.getElementById("select2");
-//    se1.onchange=function() {
-//        switch (se1.value){
-//            case '1':
-//                se2.innerHTML="<option>议一议</option><option>议一111议</option>";
-//                break;
-//            case '2':
-//                se2.innerHTML="";
-//                break;
-//            case'3':
-//                se2.innerHTML="<option>议3333议</option><option>33议</option>";
-//                break;
-//            default:
-//                alert("error");
-//        }
-//    }
+    var index = document.getElementById("indexId");
+    var register = document.getElementById("registerId");
+    var loginId = document.getElementById("loginId");
+    register.onmouseover = function () {
+        register.className="active";
+    }
+    register.onmouseout=function () {
+        register.className="";
+    }
+    index.onmouseover = function () {
+        index.className="active";
+    }
+    index.onmouseout=function () {
+        index.className="";
+    }
+    loginId.onmouseover = function () {
+        loginId.className="active";
+    }
+    loginId.onmouseout=function () {
+        loginId.className="";
+    }
 </script>

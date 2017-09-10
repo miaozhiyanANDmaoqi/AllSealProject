@@ -2,7 +2,6 @@ package com.controller;
 
 import com.domain.eneity.User;
 import com.service.UserService;
-import com.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +14,7 @@ public class TestController {
 
     @RequestMapping("/test")
     public String test(){
+        userService.findUserByAccount("acc");
         return "test";
     }
     @RequestMapping("/str")
