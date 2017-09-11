@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 开启延迟加载 -->
+    <settings>
+        <!-- lazyLoadingEnabled:延迟加载启动，默认是false -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- aggressiveLazyLoading：积极的懒加载，false的话按需加载，默认是true -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!-- 开启二级缓存，默认是false -->
+        <setting name="cacheEnabled" value="false"/>
+    </settings>
+
+    <typeAliases>
+        <!--
+            type:就是你要为那个类去别名的路径：包名+类型
+        　　alias：就是你自己取的别名
+         -->
+        <!--<typeAlias type="com.domain.eneity.User" alias="User"/>-->
+
+        <!--扫描包，Mybatis自定义别名，别名就是类型首字母的大小写都可以-->
+        <package name="com.domain.eneity"/>
+    </typeAliases>
+
+    <!--<environments default="development">-->
+        <!--<environment id="development">-->
+            <!--<transactionManager type="JDBC"></transactionManager>-->
+            <!--<dataSource type="POOLED">-->
+                <!--&lt;!&ndash;最新官方提示支持将com.mysql.jdbc.Driver（过时）  改为  com.mysql.cj.jdbc.Driver&ndash;&gt;-->
+                <!--<property name="driver" value="com.mysql.cj.jdbc.Driver"/>-->
+                <!--&lt;!&ndash;把JDBC连接mysql的URL中，所有的&符号，都改为&amp;  （有分号！！！）&ndash;&gt;-->
+                <!--<property name="url" value="jdbc:mysql://127.0.0.1:3306/allseal?characterEncoding=utf8&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC" />-->
+                <!--<property name="username" value="root"/>-->
+                <!--<property name="password" value="mzy!!!123"/>-->
+            <!--</dataSource>-->
+        <!--</environment>-->
+    <!--</environments>-->
+
+    <mappers>
+        <!--批量加载：也是扫描这个包底下的所有东西 仍然要遵守类加载的原则 -->
+        <!--<package name="mapper"/>-->
+
+        <mapper resource="mapper/userMapper.xml"/>
+    </mappers>
+</configuration>

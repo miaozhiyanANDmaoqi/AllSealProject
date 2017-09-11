@@ -16,12 +16,22 @@
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close"
-          p:driverClassName="com.mysql.jdbc.Driver"
-          p:url="jdbc:mysql//localhost:3306/sampledb"
+          p:driverClassName="com.mysql.cj.jdbc.Driver"
+          p:url="jdbc:mysql://127.0.0.1:3306/allseal?characterEncoding=utf8&amp;useUnicode=true&amp;useSSL=false&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"
           p:username="root"
           p:password="mzy!!!123"/>
 
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
-          p:dataSource-ref="dataSource"/>
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--dataSource属性指定要用到的连接池-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--configLocation属性指定mybatis的核心配置文件-->
+        <property name="configLocation" value="MyBatisConfig.xml"/>
+    </bean>
 
+    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <!--sqlSessionFactory属性指定要用到的SqlSessionFactory实例-->
+        <property name="sqlSessionFactory" ref="sqlSessionFactoryBean"/>
+        <!--mapperInterface属性指定映射器接口，用于实现此接口并生成映射器对象-->
+        <property name="mapperInterface" value="com.dao.UserDao"/>
+    </bean>
 </beans>

@@ -14,4 +14,12 @@ public class UserServiceImpl implements UserService{
     public User findUserByAccount(String acc){
         return userDao.findUserByAccount(acc);
     }
+
+    public int registerAccount(User user) {
+        if(userDao.findUserByAccount(user.getAccount())!=null){
+            return 1;
+        }
+        return 0;
+
+    }
 }

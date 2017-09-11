@@ -21,7 +21,4 @@
           p:username="root"
           p:password="mzy!!!123"/>
 
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
-          p:dataSource-ref="dataSource"/>
-
 </beans>
