@@ -7,51 +7,57 @@
   <version>1.0-SNAPSHOT</version>
   <name>WeSeal Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
+  <properties>
+    <encoding>UTF-8</encoding>
+    <current.version>4.3.10.RELEASE</current.version>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>4.3.8.RELEASE</version>
+      <version>${current.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
-      <version>4.3.8.RELEASE</version>
+      <version>${current.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>4.3.8.RELEASE</version>
+      <version>${current.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beans</artifactId>
-      <version>4.3.8.RELEASE</version>
+      <version>${current.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-tx</artifactId>
-      <version>4.3.8.RELEASE</version>
+      <version>${current.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context</artifactId>
-      <version>4.3.8.RELEASE</version>
+      <version>${current.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
-      <version>4.3.8.RELEASE</version>
+      <version>${current.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
-      <version>4.3.8.RELEASE</version>
+      <version>${current.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-aspects</artifactId>
-      <version>4.3.8.RELEASE</version>
+      <version>${current.version}</version>
     </dependency>
     <dependency>
       <groupId>commons-logging</groupId>
@@ -61,7 +67,12 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-test</artifactId>
-      <version>4.3.8.RELEASE</version>
+      <version>${current.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${current.version}</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -89,16 +100,12 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>6.0.6</version>
     </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-jdbc</artifactId>
-      <version>4.3.8.RELEASE</version>
-    </dependency>
-    <dependency>
-      <groupId>org.mybatis</groupId>
-      <artifactId>mybatis</artifactId>
-      <version>3.4.5</version>
-    </dependency>
+
+    <!--<dependency>-->
+      <!--<groupId>org.mybatis</groupId>-->
+      <!--<artifactId>mybatis</artifactId>-->
+      <!--<version>3.4.5</version>-->
+    <!--</dependency>-->
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis-spring</artifactId>
