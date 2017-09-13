@@ -72,7 +72,6 @@
 
 <a href="/test">跳转页面</a>
 <a href="http://www.baidu.com">http://www.baidu.com</a>
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
 </body>
