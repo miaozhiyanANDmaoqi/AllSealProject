@@ -5,4 +5,5 @@
     <select id="findUserByAccount" parameterType="string" resultType="User">
         select * from `user` where account = #{account}
     </select>
+
 </mapper>
