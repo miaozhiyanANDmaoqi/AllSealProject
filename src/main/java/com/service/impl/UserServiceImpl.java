@@ -6,6 +6,8 @@ import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired
@@ -17,9 +19,12 @@ public class UserServiceImpl implements UserService{
 
     public int registerAccount(User user) {
         if(userMapper.findUserByAccount(user.getAccount())!=null){
-            return 1;
+            return -1;
         }
-        return 0;
-
+        if(userMapper.findUserByTel(user.getTel())!=null){
+            return -1;
+        }
+        user.setSign_in_date( new SimpleDateFormat("yyyy-MM-dd HH:mm").format(System.currentTimeMillis()));
+        return userMapper.insertUser(user);
     }
 }

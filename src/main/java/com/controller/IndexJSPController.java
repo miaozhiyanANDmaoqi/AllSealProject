@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.domain.Emnu.SucceedOrFail;
 import com.domain.eneity.User;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,11 @@ public class IndexJSPController {
 
     @RequestMapping("signIn")
     public String signIn(User user){
-
-        return "jsp/success";
+        int i = userService.registerAccount(user);
+        if(SucceedOrFail.success.getCode()==i){
+            return "jsp/success_register";
+        }else{
+            return "jsp/fail_register";
+        }
     }
 }

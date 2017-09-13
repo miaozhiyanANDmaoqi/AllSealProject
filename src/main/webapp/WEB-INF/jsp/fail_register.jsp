@@ -10,10 +10,9 @@
 <head>
     <title>Title</title>
 </head>
-<a>
-注册成功，<span id="second">5</span>秒后跳转到首页!
-若为跳转，请点击<a href="../../index.jsp">这里</a>
-</body>
+    e~!,注册失败啦！<span id="second">5</span>秒后跳转到首页!
+    若为跳转，请点击<a href="../../index.jsp">这里</a>
+    </body>
 </html>
 <script type="text/javascript">
     var second = document.getElementById("second");
@@ -30,3 +29,4 @@
         ,1000
     )
 </script>
+
