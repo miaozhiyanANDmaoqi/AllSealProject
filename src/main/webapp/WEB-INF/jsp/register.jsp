@@ -161,6 +161,9 @@
         alert(hasGender);
         if(hasAccount && hasPassword && hasPassCheck && hasTel)
             return true;
-        else return false;
+        else{
+            alert("emmm~ 个人信息没有填写完整不能注册!");
+            return false;
+        }
     }
 </script>
