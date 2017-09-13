@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService{
     }
 
     public int registerAccount(User user) {
-        if(userDao.findUserByAccount(user.getAccount())!=null){
+        if(userMapper.findUserByAccount(user.getAccount())!=null){
             return 1;
         }
         return 0;
