@@ -13,13 +13,7 @@
     <!-- 本地Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
 </head>
-<script type="text/javascript">
-    var loginStatus = ${pageContext.session.getAttribute("loginStatus")};
-    if(loginStatus == ""){
-        alert("空");
-        ${pageContext.session.setAttribute("loginStatus","未登录")};
-    }
-</script>
+
 <body style="background: url(img/woodenbg.jpg);  text-align:center">
 <!--导航栏-->
 <nav class="navbar navbar-default">
@@ -57,11 +51,11 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li id="loginId"><a href="/login">${loginStatus}</a></li>
+                <li id="loginId"><a>${user.account}</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的帐户 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">个人信息</a></li>
+                        <li><a href="/login">个人信息</a></li>
                         <li><a href="#">我的消息</a></li>
                         <li><a href="#">买卖记录</a></li>
                         <li role="separator" class="divider"></li>

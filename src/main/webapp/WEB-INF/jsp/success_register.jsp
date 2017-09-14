@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>成功注册</title>
 </head>
 注册成功，<span id="second">3</span>秒后跳转到首页!
 若为跳转，请点击<a href="../../index.jsp">这里</a>

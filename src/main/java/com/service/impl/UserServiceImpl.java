@@ -35,7 +35,6 @@ public class UserServiceImpl implements UserService{
            return SucceedOrFail.failure.getCode();
        }else{
            request.getSession().setAttribute("user",user);
-           request.getSession().setAttribute("loginStatus",user.getAccount());
            return SucceedOrFail.success.getCode();
        }
     }
