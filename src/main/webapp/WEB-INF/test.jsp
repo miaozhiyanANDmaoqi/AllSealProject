@@ -11,7 +11,7 @@
 </head>
 <body>
 测试 web - inf
-
+<a href="/index.jsp">首页</a>
 
 </body>
 </html>

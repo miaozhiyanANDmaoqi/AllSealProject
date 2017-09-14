@@ -1,6 +1,7 @@
 package com.service.impl;
 
 import com.dao.UserMapper;
+import com.domain.Emnu.SucceedOrFail;
 import com.domain.eneity.User;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,16 @@ public class UserServiceImpl implements UserService{
         }
         user.setSign_in_date( new SimpleDateFormat("yyyy-MM-dd HH:mm").format(System.currentTimeMillis()));
         return userMapper.insertUser(user);
+    }
+
+    public int loginCheck(User user,HttpServletRequest request) {
+       User userreturn = userMapper.findUserByAccountAndPwd(user);
+       if(null == userreturn){
+           return SucceedOrFail.failure.getCode();
+       }else{
+           request.getSession().setAttribute("user",user);
+           request.getSession().setAttribute("loginStatus",user.getAccount());
+           return SucceedOrFail.success.getCode();
+       }
     }
 }

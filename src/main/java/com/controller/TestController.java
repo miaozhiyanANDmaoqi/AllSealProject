@@ -14,7 +14,6 @@ public class TestController {
 
     @RequestMapping("/test")
     public String test(){
-        User user = userService.findUserByAccount("acc");
         return "test";
     }
     @RequestMapping("/str")

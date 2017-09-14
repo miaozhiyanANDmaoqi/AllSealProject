@@ -2,6 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.domain.eneity.User">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="account" property="account" jdbcType="VARCHAR"/>
+        <result column="pwd" property="pwd" jdbcType="VARCHAR"/>
+        <result column="tel" property="tel" jdbcType="VARCHAR"/>
+        <result column="sign_in_date" property="sign_in_date" jdbcType="VARCHAR"/>
+        <result column="gender" property="gender" jdbcType="VARCHAR"/>
+    </resultMap>
     <select id="findUserByAccount" parameterType="string" resultType="User">
         select * from `user` where account = #{account}
     </select>
@@ -13,5 +21,9 @@
 
     <select id="findUserByTel" parameterType="String" resultType="User">
         SELECT * from user where tel = #{tel}
+    </select>
+
+    <select id="findUserByAccountAndPwd" parameterType="User" resultMap="BaseResultMap">
+        SELECT * from user where account=#{account} AND pwd = #{pwd}
     </select>
 </mapper>

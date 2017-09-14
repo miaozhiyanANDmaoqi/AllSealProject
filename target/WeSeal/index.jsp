@@ -13,7 +13,13 @@
     <!-- 本地Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
 </head>
-
+<script type="text/javascript">
+    var loginStatus = ${pageContext.session.getAttribute("loginStatus")};
+    if(loginStatus == ""){
+        alert("空");
+        ${pageContext.session.setAttribute("loginStatus","未登录777")};
+    }
+</script>
 <body style="background: url(img/woodenbg.jpg);  text-align:center">
 <!--导航栏-->
 <nav class="navbar navbar-default">
@@ -34,15 +40,13 @@
                 <li id="indexId"><a href="#">首页<span class="sr-only">(current)</span></a></li>
                 <li id="registerId" ><a href="register">注册</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">宝贝<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="#">书籍</a></li>
+                        <li><a href="#">买错了的衣物</a></li>
+                        <li><a href="#">电子产品</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="#">不可描述的生活用品</a></li>
                     </ul>
                 </li>
             </ul>
@@ -53,7 +57,7 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li id="loginId"><a href="#">登录</a></li>
+                <li id="loginId"><a href="/login">${loginStatus}</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的帐户 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -97,4 +101,5 @@
     loginId.onmouseout=function () {
         loginId.className="";
     }
+
 </script>

@@ -7,4 +7,6 @@ public interface UserService {
     public User findUserByAccount(String acc);
 
     public int registerAccount(User user);
+
+    public int loginCheck(User user,HttpServletRequest request);
 }

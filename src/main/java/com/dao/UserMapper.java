@@ -8,4 +8,6 @@ public interface UserMapper {
     public int insertUser(User user);
 
     public User findUserByTel(String tel);
+
+    public User findUserByAccountAndPwd(User user);
 }

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: lenovo
-  Date: 2017-09-09
-  Time: 20:18
+  Date: 2017-09-14
+  Time: 9:46
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -71,52 +71,28 @@
 <!--导航栏结束-->
 
 <!--表单-->
-<form class="form-horizontal" action="/signIn" onsubmit="return check()" method="post">
+<form class="form-horizontal" action="/checkLogin" onsubmit="return check()" method="post">
     <div class="form-group">
         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         <label for="inputAccount" class="col-sm-2 control-label">用户名</label>
         <div class="col-sm-3">
-            <input name="account" type="text" class="form-control" id="inputAccount" placeholder="用户名不超过15位"><span id="accSpan"></span>
+            <input name="account" type="text" class="form-control" id="inputAccount" placeholder="请输入用户名"><span id="accSpan"></span>
         </div>
     </div>
     <div class="form-group">
         <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
         <label for="inputPassword" class="col-sm-2 control-label">密码</label>
         <div class="col-sm-3">
-            <input name="pwd" type="password" class="form-control" id="inputPassword" placeholder="请输入密码,至少6位"><span id="pwdSpan"></span>
+            <input name="pwd" type="password" class="form-control" id="inputPassword" placeholder="请输入密码"><span id="pwdSpan"></span>
         </div>
     </div>
-    <div class="form-group">
-        <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-        <label for="inputPasswordCheck" class="col-sm-2 control-label">确认密码</label>
-        <div class="col-sm-3">
-            <input type="password" class="form-control" id="inputPasswordCheck" placeholder="请重复输入密码"><span id="pwdCheckSpan"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-        <label for="inputTel" class="col-sm-2 control-label">手机号码</label>
-        <div class="col-sm-3">
-            <input name="tel" type="password" class="form-control" id="inputTel" placeholder="输入手机号码"><span id="telSpan"></span>
-        </div>
-    </div>
+
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-3">
-            <div class="checkbox">
-                <label>
-                    <input type="radio" name="gender" value="m" checked="checked"> 男
-                    <input type="radio" name="gender" value="f"> 女
-                </label>
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-3">
-            <button type="submit" class="btn btn-default">注册</button>
+            <button type="submit" class="btn btn-default">登录</button>
         </div>
     </div>
 </form>
-
 </body>
 </html>
 <script type="text/javascript">
@@ -129,11 +105,11 @@
             span.className="";
             hasAccount = false;
         }else if (accountIn.value.length>15){
-            span.innerHTML="输入有误，用户名不超过15位";
+            span.innerHTML="请输入正确的用户名";
             span.className="text-danger";
             hasAccount = false;
         }else{
-            span.innerHTML="该用户名可以使用!";
+            span.innerHTML="";
             span.className="text-success";
             hasAccount = true;
         }
@@ -148,61 +124,32 @@
             span.className="";
             hasPassword = false;
         } else if(passwordIn.value.length<6){
-            span.innerHTML="密码至少6位";
+            span.innerHTML="密码格式不正确";
             span.className="text-danger";
             hasPassword = false;
         }else{
-            span.innerHTML="有效密码!";
+            span.innerHTML="";
             span.className="text-success";
             hasPassword = true;
         }
     }
 
-    var passwordCheck = document.getElementById("inputPasswordCheck");
-    var hasPassCheck = false;
-    passwordCheck.onblur = function () {
-        var span = document.getElementById("pwdCheckSpan");
-        if(passwordIn.value.length ==0){
-            span.innerHTML="";
-            span.className="";
-            hasPassCheck = false;
-        }else if(passwordIn.value != passwordCheck.value){
-            span.innerHTML="两次密码不一致";
-            span.className="text-warning";
-            hasPassCheck = false;
-        }else{
-            span.innerHTML="密码一致!";
-            span.className="text-success";
-            hasPassCheck = true;
-        }
-    }
-
-    var inputTel = document.getElementById("inputTel");
-    var hasTel =false;
-    inputTel.onblur = function () {
-        var reg=/^1+[35678]+[0-9]{9}$/;
-        var span = document.getElementById("telSpan");
-        if(inputTel.value.length==0){
-            span.innerHTML="";
-            span.className="";
-            hasTel =false;
-        }else  if(reg.test(inputTel.value)){
-            span.innerHTML="手机号可用!";
-            span.className="text-success";
-            hasTel =true;
-        }else{
-            span.innerHTML="请输入正确的手机号";
-            span.className="text-warning";
-            hasTel =false;
-        }
-    }
-
 
     function check(){
-        if(hasAccount && hasPassword && hasPassCheck && hasTel)
+        if(hasAccount && hasPassword){
             return true;
+        }
         else{
-            alert("emmm~ 个人信息没有填写完整不能注册!");
+            if(!hasAccount){
+                var span = document.getElementById("accSpan");
+                span.innerHTML="请输入用户名";
+                span.className="text-danger";
+            }
+            if (!hasPassword){
+                var span = document.getElementById("pwdSpan");
+                span.innerHTML="请输入密码";
+                span.className="text-danger";
+            }
             return false;
         }
     }
