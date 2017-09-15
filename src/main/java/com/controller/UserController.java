@@ -50,6 +50,11 @@ public class UserController {
         }
     }
 
+    @RequestMapping("logout")
+    public void logout(HttpServletRequest request,HttpServletResponse response){
+        userService.logout(request,response);
+    }
+
 
 
     @RequestMapping("register")

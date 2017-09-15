@@ -34,7 +34,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li id="indexId"><a href="#">首页<span class="sr-only">(current)</span></a></li>
+                <li id="indexId"><a href="/index.jsp">首页<span class="sr-only">(current)</span></a></li>
                 <li id="registerId" ><a href="register">注册</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">宝贝<span class="caret"></span></a>
@@ -54,7 +54,10 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li id="loginId"><a>${user.account}</a></li>
+                <li id="loginId">
+                    <c:if test="${not empty user}"><a>${user.account}</a></c:if>
+                    <c:if test="${empty user }"><a href="/login">未登录</a></c:if>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的帐户 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -62,7 +65,7 @@
                         <li><a href="#">我的消息</a></li>
                         <li><a href="#">买卖记录</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">退出登录</a></li>
+                        <li><a href="/logout">退出登录</a></li>
                     </ul>
                 </li>
             </ul>

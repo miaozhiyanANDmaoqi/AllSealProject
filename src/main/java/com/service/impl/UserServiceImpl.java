@@ -7,6 +7,8 @@ import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 @Service
@@ -53,5 +55,14 @@ public class UserServiceImpl implements UserService{
            request.getSession().setAttribute("user",user);
            return SucceedOrFail.success.getCode();
        }
+    }
+
+    public void logout(HttpServletRequest request,HttpServletResponse response) {
+        request.getSession().invalidate();
+        try {
+            response.sendRedirect(request.getContextPath()+"/index.jsp");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
