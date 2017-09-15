@@ -6,17 +6,33 @@ import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @Controller
-public class IndexJSPController {
+public class UserController {
     @Autowired
     private UserService userService;
+
+    @RequestMapping("signInCheckAccAndTel")
+    public void signInCheck(User user, HttpServletResponse response){
+        String str = userService.signInCheck(user)+"";
+        PrintWriter printWriter = null;
+        try {
+            printWriter = response.getWriter();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        printWriter.write(str);
+    }
 
     @RequestMapping("signIn")
     public String signIn(User user){
         int i = userService.registerAccount(user);
-        if(SucceedOrFail.success.getCode() == 1){
+        if(SucceedOrFail.success.getCode() == i){
             return "jsp/success_register";
         }else{
             return "jsp/fail_register";

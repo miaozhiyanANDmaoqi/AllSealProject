@@ -18,12 +18,28 @@ public class UserServiceImpl implements UserService{
         return userMapper.findUserByAccount(acc);
     }
 
-    public int registerAccount(User user) {
+    /**
+     * 返回1成功 -3account不可用 -2tel不可用 -5都不可用
+     * @param user
+     * @return
+     */
+    public int signInCheck(User user){
+        int result = 0;
         if(userMapper.findUserByAccount(user.getAccount())!=null){
-            return -1;
+            result = result-3;
         }
         if(userMapper.findUserByTel(user.getTel())!=null){
-            return -1;
+            result = result-2;
+        }
+        return result;
+    }
+
+    public int registerAccount(User user) {
+        if(userMapper.findUserByAccount(user.getAccount())!=null){
+            return SucceedOrFail.failure.getCode();
+        }
+        if(userMapper.findUserByTel(user.getTel())!=null){
+            return SucceedOrFail.failure.getCode();
         }
         user.setSign_in_date( new SimpleDateFormat("yyyy-MM-dd HH:mm").format(System.currentTimeMillis()));
         return userMapper.insertUser(user);

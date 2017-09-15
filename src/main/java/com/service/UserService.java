@@ -9,4 +9,6 @@ public interface UserService {
     public int registerAccount(User user);
 
     public int loginCheck(User user,HttpServletRequest request);
+
+    public int signInCheck(User user);
 }

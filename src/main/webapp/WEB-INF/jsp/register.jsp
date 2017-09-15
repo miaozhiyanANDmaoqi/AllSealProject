@@ -113,7 +113,7 @@
     </div>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-3">
-            <button type="submit" class="btn btn-default">注册</button>
+            <button type="submit" class="btn btn-default" id ="submitButton">注册</button>
         </div>
     </div>
 </form>
@@ -121,21 +121,23 @@
 </body>
 </html>
 <script type="text/javascript">
+    var spanacc = document.getElementById("accSpan");
+    var spantel = document.getElementById("telSpan");
+
     var accountIn = document.getElementById("inputAccount");
     var hasAccount = false;
     accountIn.onblur = function () {
-        var span = document.getElementById("accSpan");
         if(accountIn.value.length==0){
-            span.innerHTML="";
-            span.className="";
+            spanacc.innerHTML="";
+            spanacc.className="";
             hasAccount = false;
         }else if (accountIn.value.length>15){
-            span.innerHTML="输入有误，用户名不超过15位";
-            span.className="text-danger";
+            spanacc.innerHTML="输入有误，用户名不超过15位";
+            spanacc.className="text-danger";
             hasAccount = false;
         }else{
-            span.innerHTML="该用户名可以使用!";
-            span.className="text-success";
+            spanacc.innerHTML="该用户名可以使用!";
+            spanacc.className="text-success";
             hasAccount = true;
         }
     }
@@ -182,18 +184,17 @@
     var hasTel =false;
     inputTel.onblur = function () {
         var reg=/^1+[35678]+[0-9]{9}$/;
-        var span = document.getElementById("telSpan");
         if(inputTel.value.length==0){
-            span.innerHTML="";
-            span.className="";
+            spantel.innerHTML="";
+            spantel.className="";
             hasTel =false;
         }else  if(reg.test(inputTel.value)){
-            span.innerHTML="手机号可用!";
-            span.className="text-success";
+            spantel.innerHTML="手机号可用!";
+            spantel.className="text-success";
             hasTel =true;
         }else{
-            span.innerHTML="请输入正确的手机号";
-            span.className="text-warning";
+            spantel.innerHTML="请输入正确的手机号";
+            spantel.className="text-warning";
             hasTel =false;
         }
     }
@@ -207,4 +208,48 @@
             return false;
         }
     }
+
+    var submit = document.getElementById("submitButton");
+    submit.onmouseover = function () {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if(xmlhttp.readyState==4){
+                if(xmlhttp.status==200){
+                    if(xmlhttp.responseText=="-3"){
+                        spanacc.innerHTML="该用户名已被注册";
+                        spanacc.className="text-danger";
+                        hasAccount = false;
+                    }else if(xmlhttp.responseText== "-2"){
+                        spantel.innerHTML="手机号已被注册";
+                        spantel.className="text-danger";
+                        hasTel =false;
+                    }else if(xmlhttp.responseText== "-5"){
+                        spanacc.innerHTML="该用户名已被注册";
+                        spanacc.className="text-danger";
+                        hasAccount = false;
+                        spantel.innerHTML="手机号已被注册";
+                        spantel.className="text-danger";
+                        hasTel =false;
+                    }else if(xmlhttp.responseText== "0"){
+                        if(accountIn.value.length!=0){
+                            spanacc.innerHTML="该用户名可以使用!";
+                            spanacc.className="text-success";
+                            hasAccount = true;
+                        }
+                        if(inputTel.value.length!=0){
+                            spantel.innerHTML="手机号可用!";
+                            spantel.className="text-success";
+                            hasTel =true;
+                        }
+                    }
+                }
+            }
+        }
+        <!--建立连接-->
+        xmlhttp.open("get","signInCheckAccAndTel?account="+accountIn.value+"&tel="+inputTel.value);
+        <!--发送请求-->
+        xmlhttp.send(null);
+    }
+
+
 </script>
