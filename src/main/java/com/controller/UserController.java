@@ -67,4 +67,8 @@ public class UserController {
         return "jsp/login";
     }
 
+    @RequestMapping("myInfo")
+    public String myInfo(){
+        return "jsp/myInfo";
+    }
 }
