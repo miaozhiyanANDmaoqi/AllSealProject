@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li id="indexId"><a href="/index.jsp">首页<span class="sr-only">(current)</span></a></li>
-                <li id="registerId" ><a href="register">注册</a></li>
+                <li id="registerId" ><a href="register">注册帐号</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">宝贝<span class="caret"></span></a>
                     <ul class="dropdown-menu">
