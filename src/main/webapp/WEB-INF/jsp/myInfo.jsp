@@ -12,7 +12,21 @@
 </head>
 <body>
 <%@include file="head.jsp"%>
-MY info
+
+<div class="row">
+    <div class="col-sm-3 col-md-2">
+        <div class="thumbnail">
+            <img src="${pageContext.request.contextPath}/img/test.jpg" alt="无图片">
+            <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>p标题的啊！！</p>
+                <p><a href="http://www.baidu.com" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 上传图片:
 <form action="/uploadGood" method="post" enctype="multipart/form-data">
