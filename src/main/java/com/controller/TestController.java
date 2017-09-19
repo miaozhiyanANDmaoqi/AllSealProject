@@ -12,6 +12,7 @@ public class TestController {
     @Autowired
     private UserService userService;
 
+
     @RequestMapping("/test")
     public String test(){
         return "test";
