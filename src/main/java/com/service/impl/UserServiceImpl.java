@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService{
        if(null == userreturn){
            return SucceedOrFail.failure.getCode();
        }else{
-           request.getSession().setAttribute("user",user);
+           request.getSession().setAttribute("user",userreturn);
            return SucceedOrFail.success.getCode();
        }
     }
@@ -64,5 +64,9 @@ public class UserServiceImpl implements UserService{
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void updatePwd(User user) {
+        userMapper.updatePwd(user);
     }
 }

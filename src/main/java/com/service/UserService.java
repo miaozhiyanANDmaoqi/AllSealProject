@@ -9,9 +9,11 @@ public interface UserService {
 
     public int registerAccount(User user);
 
-    public int loginCheck(User user,HttpServletRequest request);
+    public int loginCheck(User user, HttpServletRequest request);
 
     public int signInCheck(User user);
 
-    public void logout(HttpServletRequest request,HttpServletResponse response);
+    public void logout(HttpServletRequest request, HttpServletResponse response);
+
+    public void updatePwd(User user);
 }

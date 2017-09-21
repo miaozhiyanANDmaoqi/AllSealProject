@@ -10,4 +10,6 @@ public interface UserMapper {
     public User findUserByTel(String tel);
 
     public User findUserByAccountAndPwd(User user);
+
+    public void updatePwd(User user);
 }

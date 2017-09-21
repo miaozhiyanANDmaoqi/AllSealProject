@@ -26,4 +26,8 @@
     <select id="findUserByAccountAndPwd" parameterType="User" resultMap="BaseResultMap">
         SELECT * from user where account=#{account} AND pwd = #{pwd}
     </select>
+
+    <update id="updatePwd" parameterType="User">
+        UPDATE user SET pwd = #{pwd} where id = #{id}
+    </update>
 </mapper>

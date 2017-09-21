@@ -26,7 +26,7 @@
     </div>
 </div>
 
-
+<a href="changePwd">修改!!!!</a><br/>
 
 上传图片:
 <form action="/uploadGood" method="post" enctype="multipart/form-data">

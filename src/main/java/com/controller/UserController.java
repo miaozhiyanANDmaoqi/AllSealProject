@@ -71,4 +71,15 @@ public class UserController {
     public String myInfo(){
         return "jsp/myInfo";
     }
+
+    @RequestMapping("changePwd")
+    public String updateUser(){
+        return "jsp/changePwd";
+    }
+
+    @RequestMapping("updatePwd")
+    public String updatePwd(User user){
+        userService.updatePwd(user);
+        return "jsp/updatePwd_Success";
+    }
 }
