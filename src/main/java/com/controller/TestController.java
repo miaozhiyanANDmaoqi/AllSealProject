@@ -26,7 +26,7 @@ public class TestController {
     @ResponseBody
     public User go(){
         User u = new User();
-        u.setAccount("1123");
+        u.setAccount("11234");
         u.setPwd("222");
         u.setTel("qweqwe");
         return u;
