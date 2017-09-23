@@ -14,10 +14,12 @@ import java.text.SimpleDateFormat;
 @Service
 public class UserServiceImpl implements UserService{
     @Autowired
-   private UserMapper userMapper;
+    private UserMapper userMapper;
 
     public User findUserByAccount(String acc){
-        return userMapper.findUserByAccount(acc);
+        User user = new User();
+        user.setAccount(acc);
+        return userMapper.findUserByManyElement(user);
     }
 
     /**
@@ -27,20 +29,28 @@ public class UserServiceImpl implements UserService{
      */
     public int signInCheck(User user){
         int result = 0;
-        if(userMapper.findUserByAccount(user.getAccount())!=null){
+        User user_acc = new User();
+        user_acc.setAccount(user.getAccount());
+        if(userMapper.findUserByManyElement(user_acc)!=null){
             result = result-3;
         }
-        if(userMapper.findUserByTel(user.getTel())!=null){
+        User user_tel = new User();
+        user_tel.setTel(user.getTel());
+        if(userMapper.findUserByManyElement(user_tel)!=null){
             result = result-2;
         }
         return result;
     }
 
     public int registerAccount(User user) {
-        if(userMapper.findUserByAccount(user.getAccount())!=null){
+        User user_acc = new User();
+        user_acc.setAccount(user.getAccount());
+        if(userMapper.findUserByManyElement(user_acc)!=null){
             return SucceedOrFail.failure.getCode();
         }
-        if(userMapper.findUserByTel(user.getTel())!=null){
+        User user_tel=new User();
+        user_tel.setTel(user.getTel());
+        if(userMapper.findUserByManyElement(user_tel)!=null){
             return SucceedOrFail.failure.getCode();
         }
         user.setSign_in_date( new SimpleDateFormat("yyyy-MM-dd HH:mm").format(System.currentTimeMillis()));
@@ -48,7 +58,7 @@ public class UserServiceImpl implements UserService{
     }
 
     public int loginCheck(User user,HttpServletRequest request) {
-       User userreturn = userMapper.findUserByAccountAndPwd(user);
+       User userreturn = userMapper.findUserByManyElement(user);
        if(null == userreturn){
            return SucceedOrFail.failure.getCode();
        }else{

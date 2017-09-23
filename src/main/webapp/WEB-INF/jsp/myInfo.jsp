@@ -20,31 +20,45 @@
         <div class="caption">
             <h4>基本信息</h4>
             <h5>账户:${Account.account}</h5>
-            <p><a href="http://www.baidu.com" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+            <p>
+                <form action="/uploadGood" method="post" enctype="multipart/form-data">
+                    <div><input type="file" name="photo" class="btn btn-default col-sm-5"/></div><br/>
+                    <div><input type="submit" value="上传头像" class="btn btn-primary"/></div>
+                </form>
+            </p>
         </div>
     </div>
 </div>
 
-<a href="changePwd">修改!!!!</a><br/>
 
-上传图片:
-<form action="/uploadGood" method="post" enctype="multipart/form-data">
-    <input type="text" name="description"/><br/>
-    <input type="file" name="photo"/><br/>
-    <input type="submit" value="上传"/>
-</form>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">个人信息</h3>
+    </div>
 
-完善程度:
-<div class="progress">
-    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-        60%
+    <div class="panel-body">
+        <a href="changePwd">修改!!!!</a><br/>
+        完善程度:
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                60%
+            </div>
+        </div>
+        进度条测试
+        <div class="progress">
+            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                <span class="sr-only">20% Complete</span>
+            </div>
+        </div>
+
     </div>
+
+
+
 </div>
-进度条测试
-<div class="progress">
-    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-        <span class="sr-only">20% Complete</span>
-    </div>
-</div>
+
+
+
+
 </body>
 </html>
