@@ -55,8 +55,8 @@
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li id="loginId">
-                    <c:if test="${not empty user}"><a>${user.account}</a></c:if>
-                    <c:if test="${empty user }"><a href="/login">未登录</a></c:if>
+                    <c:if test="${not empty Account}"><a>${Account.account}</a></c:if>
+                    <c:if test="${empty Account }"><a href="/login">未登录</a></c:if>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的帐户 <span class="caret"></span></a>

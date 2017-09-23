@@ -11,5 +11,5 @@ public interface UserMapper {
 
     public User findUserByAccountAndPwd(User user);
 
-    public void updatePwd(User user);
+    public int updatePwd(User user);
 }

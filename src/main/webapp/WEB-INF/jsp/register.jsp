@@ -93,8 +93,8 @@
             span.innerHTML="";
             span.className="";
             hasPassword = false;
-        } else if(passwordIn.value.length<6){
-            span.innerHTML="密码至少6位";
+        } else if(passwordIn.value.length<6 || passwordIn.value.length>22){
+            span.innerHTML="密码至少6位,至多22位";
             span.className="text-danger";
             hasPassword = false;
         }else{

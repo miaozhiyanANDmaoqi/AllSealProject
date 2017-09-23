@@ -35,7 +35,7 @@ public class UserController {
         if(SucceedOrFail.success.getCode() == i){
             return "jsp/success_register";
         }else{
-            return "jsp/fail_register";
+            return "jsp/error";
         }
     }
 
@@ -55,6 +55,14 @@ public class UserController {
         userService.logout(request,response);
     }
 
+    @RequestMapping("updatePwd")
+    public String updatePwd(User user){
+        if(userService.updatePwd(user)==1){
+            return "jsp/updatePwd_Success";
+        } else{
+            return "jsp/error";
+        }
+    }
 
 
     @RequestMapping("register")
@@ -77,9 +85,4 @@ public class UserController {
         return "jsp/changePwd";
     }
 
-    @RequestMapping("updatePwd")
-    public String updatePwd(User user){
-        userService.updatePwd(user);
-        return "jsp/updatePwd_Success";
-    }
 }

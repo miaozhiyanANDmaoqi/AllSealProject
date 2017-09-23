@@ -14,123 +14,128 @@
 <%@include file="head.jsp"%>
 
 
-<form action="updatePwd" method="post">
+<form action="updatePwd" method="post" onsubmit="return check()" >
     <div class="form-group">
-        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-        <label for="User">用户名</label>
-          <div class="col-sm-3">
-             <input type="text" class="form-control" id="User" placeholder="请输入用户名,不超过15位"><span id="accSpan"></span>
-          </div>
-    </div>
-    <div class="form-group">
-        <span class="glyphicon glyphicon-oldLock" aria-hidden="true"></span>
-        <label for="oldPwd">当前密码</label>
+        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+        <label for="oldPwd">旧的密码</label>
             <div class="col-sm-3">
-             <input type="password" class="form-control" id="oldPwd"  placeholder="请输入旧密码,至少6位"><span id="oldpwdSpan"></span>
+             <input type="password" class="form-control" id="oldPwd"  placeholder="请输入旧密码">
             </div>
+      <span id="oldpwdSpan"></span>
     </div>
+
     <div class="form-group">
-        <span class="glyphicon glyphicon-newLock" aria-hidden="true"></span>
-        <label for="newPwd">新的密码</label>
+        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+        <label for="newPwd">新密码</label>
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="newPwd"  placeholder="请确认新密码,至少6位" name="pwd"><span id="pwdSpan"></span>
+            <input type="password" class="form-control" id="newPwd"  placeholder="请输入新密码,至少6位" name="pwd">
         </div>
+        <span id="pwdSpan"></span>
     </div>
+
+
     <div class="form-group">
         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-        <label for="confirmPwd">确认密码</label>
+        <label for="confirmPwd">确认新密码</label>
             <div class="col-sm-3">
-                <input type="password" class="form-control" id="confirmPwd"  placeholder="请确认新密码,至少6位"><span id="pwdCheckSpan"></span>
+                <input type="password" class="form-control" id="confirmPwd"  placeholder="请确认新密码">
             </div>
+        <span id="pwdCheckSpan"></span>
     </div>
-    <input type="hidden" name="id" value="${sessionScope.user.id}"/>
+
+    <input type="hidden" name="id" value="${sessionScope.Account.id}"/>
+
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-3">
             <button type="submit" class="btn btn-default" id ="submitButton">确认修改</button>
         </div>
     </div>
+
 </form>
 </body>
 
 
 
 <script type="text/javascript">
-    var pwd = ${sessionScope.user.pwd};
-    var User = document.getElementById("User");
-
-
+    var pwd = ${sessionScope.Account.pwd};
     var oldPwd = document.getElementById("oldPwd");
-
-
     var  newPwd = document.getElementById("newPwd");
-
-
     var confirmPwd = document.getElementById("confirmPwd");
 
-
-
-    var span = document.getElementById("accSpan");
-    User.onblur = function () {
-
-        if(User.value.length == 0){
-            span.innerHTML = "";
-        }else if(User.value.length > 15){
-            span.innerHTML = "用户名太长";
-            span.className="text-danger";
-        }else{
-            span.innerHTML = "该用户名可以使用";
-            span.className="text-success";
-        }
-    }
-
     var pwdRight = false;
-    var  span = document.getElementById("oldpwdSpan");
+    var newPwdRight = false;
+    var newPwdCheckRight = false;
+    var  oldSpan = document.getElementById("oldpwdSpan");
    oldPwd.onblur = function () {
-        if(pwd==null || pwd==""){
-            span.innerHTML = "";
+        if(oldPwd.value==null || oldPwd.value==""){
+            oldSpan.innerHTML = "";
+            pwdRight = false;
         }else{
             if (oldPwd.value==pwd){
-                span.innerHTML = "密码正确";
-                span.className="text-success";
+                oldSpan.innerHTML = "密码正确";
+                oldSpan.className="text-success";
                 pwdRight = true;
             }else{
-                span.innerHTML = "密码错误";
-                span.className="text-danger";
+                oldSpan.innerHTML = "密码错误";
+                oldSpan.className="text-danger";
                 pwdRight = false;
             }
         }
     }
 
-    var span = document.getElementById("pwdSpan");
+    var newPwdSpan = document.getElementById("pwdSpan");
     newPwd.onblur = function () {
         if(pwdRight == false ) {
-
+            newPwdSpan.innerHTML = "旧密码错误";
+            newPwdSpan.className="text-danger";
+            newPwdRight = false;
         }else{
-            if (newPwd.value.length >= 6 && newPwd.value.length <= 15) {
-                span.innerHTML = "密码可以使用";
-                span.className="text-success";
+            if (newPwd.value == oldPwd.value ) {
+                newPwdSpan.innerHTML = "新旧密码不能一样";
+                newPwdRight = false;
+                newPwdSpan.className="text-danger";
+            }else if (newPwd.value.length >= 6 && newPwd.value.length <= 22) {
+                newPwdSpan.innerHTML = "密码可以使用";
+                newPwdSpan.className="text-success";
+                newPwdRight = true;
+            } else if (newPwd.value.length == 0 ) {
+                newPwdSpan.innerHTML = "";
+                newPwdRight = false;
             } else {
-                span.innerHTML = "密码至少6位,至多15位";
-                span.className="text-danger";
+                newPwdSpan.innerHTML = "密码至少6位,至多22位";
+                newPwdSpan.className="text-danger";
+                newPwdRight = false;
             }
+            confirmPwd.onmouseout();
         }
     }
 
 
     var span = document.getElementById("pwdCheckSpan");
-    confirmPwd.onblur = function () {
-        if(newPwd.value.length == 0){
-            span.innerHTML = "请先输入新密码";
-            span.className="text-danger";
+    confirmPwd.onmouseout = function () {
+        if(confirmPwd.value.length == 0){
+            span.innerHTML = "";
+            newPwdCheckRight = false;
         }else if (confirmPwd.value == newPwd.value) {
             span.innerHTML = "密码一致";
-            span.className="text-danger";
+            span.className="text-success";
+            newPwdCheckRight = true;
         } else {
             span.innerHTML = "密码不一致";
             span.className="text-danger";
+            newPwdCheckRight = false;
         }
     }
 
+
+    function check(){
+        if(pwdRight&& newPwdRight&&newPwdCheckRight)
+            return true;
+        else{
+            alert("emmm~ 填写信息错误!");
+            return false;
+        }
+    }
 
 </script>
 

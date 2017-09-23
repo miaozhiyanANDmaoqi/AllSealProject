@@ -17,7 +17,7 @@
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close"
           p:driverClassName="com.mysql.cj.jdbc.Driver"
-          p:url="jdbc:mysql://192.168.1.102:3306/allseal?characterEncoding=utf8&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=true"
+          p:url="jdbc:mysql://192.168.1.103:3306/allseal?characterEncoding=utf8&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=true"
           p:username="root"
           p:password="mzy!!!123"/>
 

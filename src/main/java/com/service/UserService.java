@@ -15,5 +15,5 @@ public interface UserService {
 
     public void logout(HttpServletRequest request, HttpServletResponse response);
 
-    public void updatePwd(User user);
+    public int updatePwd(User user);
 }
