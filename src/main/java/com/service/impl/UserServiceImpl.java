@@ -53,6 +53,7 @@ public class UserServiceImpl implements UserService{
         if(userMapper.findUserByManyElement(user_tel)!=null){
             return SucceedOrFail.failure.getCode();
         }
+
         user.setSign_in_date( new SimpleDateFormat("yyyy-MM-dd HH:mm").format(System.currentTimeMillis()));
         return userMapper.insertUser(user);
     }
