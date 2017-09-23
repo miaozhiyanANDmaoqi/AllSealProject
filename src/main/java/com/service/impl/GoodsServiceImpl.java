@@ -24,6 +24,7 @@ public class GoodsServiceImpl implements GoodsService{
             */
             DiskFileItemFactory factory = new DiskFileItemFactory();
             ServletFileUpload servletFileUpload = new ServletFileUpload(factory);
+
             List<FileItem> fileItems = servletFileUpload.parseRequest(request);
             for (FileItem fileItem : fileItems){
                 if (fileItem.isFormField()){

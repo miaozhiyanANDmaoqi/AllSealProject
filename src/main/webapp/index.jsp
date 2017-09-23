@@ -12,21 +12,13 @@
 <body style="background: url(img/woodenbg.jpg);  text-align:center">
 <%@include file="WEB-INF/jsp/head.jsp"%>
 
-<a href="/test">跳转页面</a>
-
-<div class="media">
-    <div class="media-left">
-        <a href="#">
-            <img class="media-object" src="..." alt="...">
-        </a>
-    </div>
-    <div class="media-body">
-        <h4 class="media-heading">Media heading</h4>
-        ...
-    </div>
+<div class="jumbotron">
+    <h1>Hello, world!</h1>
+    <p>...</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div>
 
-
+<a href="/test">跳转页面</a>
 </body>
 
 
