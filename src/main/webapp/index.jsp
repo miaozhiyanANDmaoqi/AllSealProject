@@ -13,9 +13,9 @@
 <%@include file="WEB-INF/jsp/head.jsp"%>
 
 <div class="jumbotron">
-    <h1>Hello, world!</h1>
+    <h1>欢迎光临二手交易市场</h1>
     <p>...</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">访问更多宝贝</a></p>
 </div>
 
 <a href="/test">跳转页面</a>
