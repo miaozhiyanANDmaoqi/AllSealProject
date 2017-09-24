@@ -61,9 +61,9 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的帐户 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/login">个人信息</a></li>
-                        <li><a href="/myInfo">我的消息</a></li>
-                        <li><a href="#">买卖记录</a></li>
+                        <li><a href="/myInfo">个人信息</a></li>
+                        <li><a href="/communication">聊天消息</a></li>
+                        <li><a href="/transaction">交易记录</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="/logout">退出登录</a></li>
                     </ul>
