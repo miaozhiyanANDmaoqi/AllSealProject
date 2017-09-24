@@ -22,7 +22,7 @@
             <h5>账户:${Account.account}</h5>
             <p>
             <form action="/uploadGood" method="post" enctype="multipart/form-data">
-                <input type="file" name="photo" class="btn btn-default col-sm-5"/>
+                <input type="file" name="photo" class="btn btn-default col-sm-7"/>
                 <input type="submit" value="上传头像" class="btn btn-primary"/>
             </form>
             </p>
@@ -30,7 +30,7 @@
     </div>
     <ul class="nav nav-pills nav-stacked">
         <li role="presentation" ><a href="/myInfo">我的信息</a></li>
-        <li role="presentation" class="active"><a href="/communication">聊天消息</a></li>
+        <li role="presentation" class="active"><a href="/communication">聊天消息<span class="badge">14</span></a></li>
         <li role="presentation"><a href="/transaction">交易记录</a></li>
     </ul>
 </div>

@@ -22,7 +22,7 @@
             <h5>账户:${Account.account}</h5>
             <p>
                 <form action="/uploadGood" method="post" enctype="multipart/form-data">
-                    <input type="file" name="photo" class="btn btn-default col-sm-5"/>
+                    <input type="file" name="photo" class="btn btn-default col-sm-7"/>
                     <input type="submit" value="上传头像" class="btn btn-primary"/>
                 </form>
             </p>
@@ -30,19 +30,62 @@
     </div>
     <ul class="nav nav-pills nav-stacked">
         <li role="presentation" class="active"><a href="/myInfo">我的信息</a></li>
-        <li role="presentation"><a href="/communication">聊天消息</a></li>
+        <li role="presentation"><a href="/communication">聊天消息<span class="badge">14</span></a></li>
         <li role="presentation"><a href="/transaction">交易记录</a></li>
     </ul>
 </div>
-
-
+<!--右半部分-->
 <div class="panel panel-info">
     <div class="panel-heading">
         <h3 class="panel-title">个人信息</h3>
     </div>
 
     <div class="panel-body">
-        <a href="changePwd">修改!!!!</a><br/>
+        <span class="input-group-addon" id="basic-info">基本信息:</span>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-acc">昵称</span>
+            <label class="form-control" aria-describedby="basic-addon1">${Account.account}</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-tel">电话</span>
+            <label class="form-control" aria-describedby="basic-addon1">${Account.tel}</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-gender">性别</span>
+            <label class="form-control" aria-describedby="basic-addon1">${Account.gender}</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-signIndate">注册日期</span>
+            <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+        </div>
+        <span class="input-group-addon" id="detailed-info">详细信息:</span>
+        <div class="input-group">
+            <span class="input-group-addon" id="detailed-Email">邮箱</span>
+            <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="detailed-EXP">经验值</span>
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                   40% Complete (success)
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="detailed-allseal">出售总额</span>
+            <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="detailed-purchase">购买总额</span>
+            <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+        </div>
+        <span class="input-group-addon" id="detailed-signature">签名介绍</span>
+        <div class="input-group">
+            <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+        </div>
+
+
+        <a href="changePwd">修改密码</a><br/>
         完善程度:
         <div class="progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
@@ -50,9 +93,10 @@
             </div>
         </div>
         进度条测试
+        red
         <div class="progress">
-            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                <span class="sr-only">20% Complete</span>
+            <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                <span class="sr-only">80% Complete (danger)</span>
             </div>
         </div>
 
