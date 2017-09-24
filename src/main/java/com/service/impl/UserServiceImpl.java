@@ -162,7 +162,26 @@ public class UserServiceImpl implements UserService{
         return SucceedOrFail.failure.getCode();
     }
 
-    public int updatePwd(User user) {
+    public int updateAllInfo( HttpServletRequest request) {
+        User_AllInfo user_allInfo = (User_AllInfo) request.getSession().getAttribute("Account");
+        User user = user_allInfo.getUser();
+        user.setTel(request.getParameter("Ntel"));
+        UserInfo userInfo = user_allInfo.getUserInfo();
+        userInfo.setEmail(request.getParameter("Email"));
+        userInfo.setSignature(request.getParameter("signature"));
+        int userinfoflag = userInfoMapper.updateUserInfo(userInfo);
+        int userflag = userMapper.updateUser(user);
+        if (userflag==1 && userinfoflag==1){
+            return SucceedOrFail.success.getCode();
+        }else{
+            return SucceedOrFail.failure.getCode();
+        }
+    }
+
+    public int updatepwd(User user,HttpServletRequest request){
+        User_AllInfo user_allInfo = (User_AllInfo)request.getSession().getAttribute("Account");
+        user_allInfo.setPwd(user.getPwd());
+        request.getSession().setAttribute("Account",user_allInfo);
         return userMapper.updatePwd(user);
     }
 

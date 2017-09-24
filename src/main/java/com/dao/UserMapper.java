@@ -10,5 +10,7 @@ public interface UserMapper {
 
     public int updatePwd(User user);
 
+    public int updateUser(User user);
+
     public User findUserByManyElement(User user);
 }

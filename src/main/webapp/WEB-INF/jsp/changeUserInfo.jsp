@@ -43,7 +43,7 @@
     </div>
 
     <div class="panel-body">
-        <form action="gggg" method="post">
+        <form action="updateUserAllInfo" method="post">
             <div class="panel-body">
                 <span class="input-group-addon" id="basic-info">基本信息:</span>
                 <div class="input-group">

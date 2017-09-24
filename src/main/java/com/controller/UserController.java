@@ -2,6 +2,7 @@ package com.controller;
 
 import com.domain.Emnu.SucceedOrFail;
 import com.domain.eneity.User;
+import com.domain.po.User_AllInfo;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,8 +57,8 @@ public class UserController {
     }
 
     @RequestMapping("updatePwd")
-    public String updatePwd(User user){
-        if(userService.updatePwd(user)==1){
+    public String updatePwd(User user,HttpServletRequest request){
+        if(userService.updatepwd(user,request)==1){
             return "jsp/updatePwd_Success";
         } else{
             return "jsp/error";
@@ -72,7 +73,14 @@ public class UserController {
             return "jsp/error";
         }
     }
-
+    @RequestMapping("updateUserAllInfo")
+    public String updateUserAllInfo(HttpServletRequest request){
+        if(userService.updateAllInfo(request)==SucceedOrFail.success.getCode()){
+            return "jsp/myInfo";
+        }else{
+            return "jsp/error";
+        }
+    }
 
     @RequestMapping("register")
     public String register(){

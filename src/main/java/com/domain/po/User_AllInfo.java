@@ -31,6 +31,27 @@ public class User_AllInfo {
         this.EXP=userInfo.getEXP();
         this.Email=this.getEmail();
     }
+    public UserInfo getUserInfo(){
+        UserInfo userInfo = new UserInfo();
+        userInfo.setSignature(this.signature);
+        userInfo.setAllpurchase(this.allpurchase);
+        userInfo.setAllseal(this.allseal);
+        userInfo.setEXP(this.EXP);
+        userInfo.setEmail(this.Email);
+        userInfo.setId(this.id);
+        return userInfo;
+    }
+
+    public User getUser(){
+        User user = new User();
+        user.setId(this.id);
+        user.setAccount(this.account);
+        user.setTel(this.tel);
+        user.setPwd(this.pwd);
+        user.setGender(this.gender);
+        user.setSign_in_date(this.sign_in_date);
+        return user;
+    }
 
     public String getAccount() {
         return account;

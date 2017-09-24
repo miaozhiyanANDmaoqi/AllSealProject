@@ -8,4 +8,6 @@ public interface UserInfoMapper {
     public int insertUserInfo(UserInfo userInfo);
 
     public UserInfo findUserInfo(UserInfo userInfo);
+
+    public int updateUserInfo(UserInfo userInfo);
 }

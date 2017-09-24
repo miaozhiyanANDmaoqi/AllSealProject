@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>成功登录</title>
+    <title>密码修改成功</title>
 </head>
 修改密码成功! <span id="second">3</span>秒后跳转到首页!
 若为跳转，请点击<a href="../../index.jsp">这里</a>

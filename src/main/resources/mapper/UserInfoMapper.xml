@@ -76,4 +76,26 @@
             AND Email=#{Email}
         </if>
     </select>
+
+    <update id="updateUserInfo" parameterType="UserInfo">
+        UPDATE userinfo
+        <set>
+            <if test="signature!=null">
+                signature=#{signature},
+            </if>
+            <if test="allpurchase!=null">
+                allpurchase=#{allpurchase},
+            </if>
+            <if test="allseal!=null">
+                allseal=#{allseal},
+            </if>
+            <if test="EXP!=null">
+                EXP=#{EXP},
+            </if>
+            <if test="Email!=null">
+                Email=#{Email},
+            </if>
+        </set>
+        WHERE id = #{id}
+    </update>
 </mapper>
