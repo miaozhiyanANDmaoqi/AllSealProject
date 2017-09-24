@@ -32,6 +32,7 @@
             <li role="presentation" class="active"><a href="/myInfo">我的信息</a></li>
             <li role="presentation"><a href="/communication">聊天消息<span class="badge">14</span></a></li>
             <li role="presentation"><a href="/transaction">交易记录</a></li>
+            <li role="presentation"><a href="/changePwd">修改密码</a></li>
         </ul>
     </div>
     <!--右半部分-->
@@ -85,7 +86,7 @@
             </div>
 
 
-            <a href="changePwd">修改密码</a><br/>
+
             完善程度:
             <div class="progress">
                 <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">

@@ -13,43 +13,76 @@
 <body>
 <%@include file="head.jsp"%>
 
+<!--左半部分-->
+<div class="col-xs-2">
+    <div class="thumbnail">
+        <img src="${pageContext.request.contextPath}/upload/userIcon/${Account.id}.jpg" alt="暂无头像">
+        <div class="caption">
+            <h4>基本信息</h4>
+            <h5>账户:${Account.account}</h5>
+            <p>
+            <form action="/uploadIcon" method="post" enctype="multipart/form-data">
+                <input type="file" name="${Account.id}" class="btn btn-default col-sm-7"/>
+                <input type="submit" value="上传头像" class="btn btn-primary"/>
+            </form>
+            </p>
+        </div>
+    </div>
+    <ul class="nav nav-pills nav-stacked">
+        <li role="presentation"><a href="/myInfo">我的信息</a></li>
+        <li role="presentation"><a href="/communication">聊天消息<span class="badge">14</span></a></li>
+        <li role="presentation"><a href="/transaction">交易记录</a></li>
+        <li role="presentation"  class="active"><a href="/changePwd">修改密码</a></li>
+    </ul>
+</div>
 
-<form action="updatePwd" method="post" onsubmit="return check()" >
-    <div class="form-group">
-        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-        <label for="oldPwd">旧的密码</label>
-            <div class="col-sm-3">
-             <input type="password" class="form-control" id="oldPwd"  placeholder="请输入旧密码">
-            </div>
-      <span id="oldpwdSpan"></span>
+<!--右半部分-->
+<div class="panel panel-info col-xs-10">
+    <div class="panel-heading">
+        <h3 class="panel-title">交易记录</h3>
     </div>
 
-    <div class="form-group">
+    <div class="panel-body">
+        <form action="updatePwd" method="post" onsubmit="return check()" >
+        <div class="form-group">
+        <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+        <label for="oldPwd">旧的密码</label>
+        <div class="col-sm-3">
+        <input type="password" class="form-control" id="oldPwd"  placeholder="请输入旧密码">
+        </div>
+        <span id="oldpwdSpan"></span>
+        </div>
+
+        <div class="form-group">
         <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
         <label for="newPwd">新密码</label>
         <div class="col-sm-3">
-            <input type="password" class="form-control" id="newPwd"  placeholder="请输入新密码,至少6位" name="pwd">
+        <input type="password" class="form-control" id="newPwd"  placeholder="请输入新密码,至少6位" name="pwd">
         </div>
         <span id="pwdSpan"></span>
-    </div>
+        </div>
 
 
-    <div class="form-group">
+        <div class="form-group">
         <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
         <label for="confirmPwd">确认新密码</label>
-            <div class="col-sm-3">
-                <input type="password" class="form-control" id="confirmPwd"  placeholder="请确认新密码">
-            </div>
+        <div class="col-sm-3">
+        <input type="password" class="form-control" id="confirmPwd"  placeholder="请确认新密码">
+        </div>
         <span id="pwdCheckSpan"></span>
-    </div>
+        </div>
 
-    <input type="hidden" name="id" value="${sessionScope.Account.id}"/>
+        <input type="hidden" name="id" value="${sessionScope.Account.id}"/>
 
-    <div class="form-group">
+        <div class="form-group">
         <div class="col-sm-offset-2 col-sm-3">
-            <button type="submit" class="btn btn-default" id ="submitButton">确认修改</button>
+        <button type="submit" class="btn btn-default" id ="submitButton">确认修改</button>
+        </div>
         </div>
     </div>
+
+</div>
+
 
 </form>
 </body>

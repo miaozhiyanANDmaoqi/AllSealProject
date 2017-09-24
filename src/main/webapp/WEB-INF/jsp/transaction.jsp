@@ -33,6 +33,7 @@
         <li role="presentation"><a href="/myInfo">我的信息</a></li>
         <li role="presentation"><a href="/communication">聊天消息<span class="badge">14</span></a></li>
         <li role="presentation" class="active"><a href="/transaction">交易记录</a></li>
+        <li role="presentation"><a href="/changePwd">修改密码</a></li>
     </ul>
 </div>
 
