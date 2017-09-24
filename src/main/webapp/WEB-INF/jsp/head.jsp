@@ -50,7 +50,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"/>查询<</button>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"/>查询</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li id="loginId">
