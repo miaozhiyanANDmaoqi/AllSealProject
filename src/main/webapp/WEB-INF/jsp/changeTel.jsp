@@ -11,7 +11,7 @@
     <title>修改手机号码</title>
 </head>
 <body>
-    <form action="#" method="post">
+    <form action="gggg" method="post">
         <div class="form-group">
             <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
             <label for="inputTel" class="col-sm-2 control-label">手机号码</label>
