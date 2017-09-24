@@ -64,6 +64,15 @@ public class UserController {
         }
     }
 
+    @RequestMapping("uploadIcon")
+    public String uploadIcon(HttpServletRequest request){
+        if(userService.uploadIcon(request)==SucceedOrFail.success.getCode()){
+            return "jsp/myInfo";
+        }else{
+            return "jsp/error";
+        }
+    }
+
 
     @RequestMapping("register")
     public String register(){
