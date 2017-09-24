@@ -85,4 +85,9 @@ public class UserController {
         return "jsp/changePwd";
     }
 
+    @RequestMapping("changeTel")
+    public String updateTel(){
+        return "jsp/changeTel";
+    }
+
 }
