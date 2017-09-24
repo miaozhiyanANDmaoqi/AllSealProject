@@ -17,7 +17,6 @@
     <p>...</p>
     <p><a class="btn btn-primary btn-lg" href="#" role="button">访问更多宝贝</a></p>
 </div>
-
 <a href="/test">跳转页面</a>
 </body>
 

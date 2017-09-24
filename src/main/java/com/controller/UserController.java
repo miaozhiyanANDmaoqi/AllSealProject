@@ -103,9 +103,9 @@ public class UserController {
     public String transaction(){
         return "jsp/transaction";
     }
-    @RequestMapping("changeTel")
+    @RequestMapping("changeUserInfo")
     public String updateTel(){
-        return "jsp/changeTel";
+        return "jsp/changeUserInfo";
     }
 
 }

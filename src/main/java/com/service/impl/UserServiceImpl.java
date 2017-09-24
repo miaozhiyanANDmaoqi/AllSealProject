@@ -41,12 +41,12 @@ public class UserServiceImpl implements UserService{
         int result = 0;
         User user_acc = new User();
         user_acc.setAccount(user.getAccount());
-        if(userMapper.findUserByManyElement(user_acc)!=null){
+        if(user_acc.getAccount()!=null&&userMapper.findUserByManyElement(user_acc)!=null){
             result = result-3;
         }
         User user_tel = new User();
         user_tel.setTel(user.getTel());
-        if(userMapper.findUserByManyElement(user_tel)!=null){
+        if(user_tel.getTel()!=null&&userMapper.findUserByManyElement(user_tel)!=null){
             result = result-2;
         }
         return result;

@@ -101,8 +101,12 @@
                 </div>
             </div>
         </div>
+        <button type="button" class="btn btn-warning" id="changeButton">修改信息</button>
     </div>
-
-
 </body>
+<script type="text/javascript">
+    $("#changeButton").click(function () {
+        location.href="/changeUserInfo";
+    });
+</script>
 </html>
