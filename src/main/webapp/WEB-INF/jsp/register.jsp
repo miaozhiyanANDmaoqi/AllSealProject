@@ -51,6 +51,7 @@
                     <input type="radio" name="gender" value="m" checked="checked"> 男
                     <input type="radio" name="gender" value="f"> 女
                 </label>
+                <div class="alert alert-warning" role="alert"><label>注意：选择后无法修改</label></div>
             </div>
         </div>
     </div>

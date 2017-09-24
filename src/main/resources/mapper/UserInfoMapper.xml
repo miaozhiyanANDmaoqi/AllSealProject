@@ -54,4 +54,26 @@
             </if>
         </trim>
     </insert>
+
+    <select id="findUserInfo" parameterType="UserInfo" resultType="UserInfo">
+        SELECT * FROM userinfo where TRUE
+        <if test="id!=null">
+           AND id=#{id}
+        </if>
+        <if test="signature!=null">
+            AND signature=#{signature}
+        </if>
+        <if test="allpurchase!=null">
+            AND allpurchase=#{allpurchase}
+        </if>
+        <if test="allseal!=null">
+            AND allseal=#{allseal}
+        </if>
+        <if test="EXP!=null">
+            AND EXP=#{EXP}
+        </if>
+        <if test="Email!=null">
+            AND Email=#{Email}
+        </if>
+    </select>
 </mapper>

@@ -5,6 +5,7 @@ import com.dao.UserMapper;
 import com.domain.Emnu.SucceedOrFail;
 import com.domain.eneity.User;
 import com.domain.eneity.UserInfo;
+import com.domain.po.User_AllInfo;
 import com.service.UserService;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -91,7 +92,11 @@ public class UserServiceImpl implements UserService{
        if(null == userreturn){
            return SucceedOrFail.failure.getCode();
        }else{
-           request.getSession().setAttribute("Account",userreturn);
+           UserInfo u = new UserInfo();
+           u.setId(userreturn.getId());
+           UserInfo userInfo = userInfoMapper.findUserInfo(u);//根据user的id找到对应的userinfo
+           User_AllInfo user_allInfo = new User_AllInfo(userreturn,userInfo);//合并数据
+           request.getSession().setAttribute("Account",user_allInfo);
            return SucceedOrFail.success.getCode();
        }
     }

@@ -44,16 +44,53 @@
 
     <div class="panel-body">
         <form action="gggg" method="post">
-            <div class="form-group">
-                <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
-                <label for="inputTel" class="col-sm-2 control-label">手机号码</label>
-                <div class="col-sm-3">
-                    <input name="Ntel" type="text" class="form-control" id="inputTel" placeholder="输入手机号码"><span id="telSpan"></span>
+            <div class="panel-body">
+                <span class="input-group-addon" id="basic-info">基本信息:</span>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-acc">昵称</span>
+                    <label class="form-control" aria-describedby="basic-addon1">${Account.account}</label>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-3">
-                    <button type="submit" class="btn btn-default" id ="submitButton">确定</button>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-tel">电话</span>
+                    <input name="Ntel" type="text" aria-describedby="basic-addon1" class="form-control" id="inputTel" placeholder="输入手机号码" value="${Account.tel}"><span id="telSpan"></span>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-gender">性别</span>
+                    <label class="form-control" aria-describedby="basic-addon1">${Account.gender}</label>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-signIndate">注册日期</span>
+                    <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+                </div>
+                <span class="input-group-addon" id="detailed-info">详细信息:</span>
+                <div class="input-group">
+                    <span class="input-group-addon" id="detailed-Email">邮箱</span>
+                    <input name="Email" type="text" aria-describedby="basic-addon1" class="form-control" id="inputEmail" placeholder="输入邮箱" value="${Account.sign_in_date}"><span id="EmailSpan"></span>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="detailed-EXP">经验值</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                            40% Complete (success)
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="detailed-allseal">出售总额</span>
+                    <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon" id="detailed-purchase">购买总额</span>
+                    <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+                </div>
+                <span class="input-group-addon" id="detailed-signature">签名介绍</span>
+                <div class="input-group">
+                    <input name="signature" type="text" aria-describedby="basic-addon1" class="form-control" id="signature" placeholder="输入签名介绍" value="${Account.sign_in_date}"><span id="signatureSpan">还可以输入170个文字</span>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-3">
+                        <button type="submit" class="btn btn-success" id ="submitButton">保存</button>
+                    </div>
                 </div>
             </div>
         </form>
