@@ -1,8 +1,10 @@
 package com.service.impl;
 
+import com.dao.UserInfoMapper;
 import com.dao.UserMapper;
 import com.domain.Emnu.SucceedOrFail;
 import com.domain.eneity.User;
+import com.domain.eneity.UserInfo;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,8 @@ import java.text.SimpleDateFormat;
 public class UserServiceImpl implements UserService{
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private UserInfoMapper userInfoMapper;
 
     public User findUserByAccount(String acc){
         User user = new User();
@@ -53,9 +57,16 @@ public class UserServiceImpl implements UserService{
         if(userMapper.findUserByManyElement(user_tel)!=null){
             return SucceedOrFail.failure.getCode();
         }
-
         user.setSign_in_date( new SimpleDateFormat("yyyy-MM-dd HH:mm").format(System.currentTimeMillis()));
-        return userMapper.insertUser(user);
+        int user_flag = userMapper.insertUser(user);//插入user表，成功返回1，失败返回0
+        UserInfo userInfo = new UserInfo();
+        userInfo.setId(userMapper.findUserByManyElement(user).getId());//根据用户名和密码查到user的id
+        int userinfo_flag = userInfoMapper.insertUserInfo(userInfo);//根据用户id插入userinfo表，成功返回1，失败返回0
+        if(user_flag == 1 && userinfo_flag ==1){
+            return SucceedOrFail.success.getCode();
+        }else{
+            return SucceedOrFail.failure.getCode();
+        }
     }
 
     public int loginCheck(User user,HttpServletRequest request) {
