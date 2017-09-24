@@ -85,6 +85,15 @@ public class UserController {
         return "jsp/changePwd";
     }
 
+    @RequestMapping("communication")
+    public String communication(){
+        return "jsp/communication";
+    }
+
+    @RequestMapping("transaction")
+    public String transaction(){
+        return "jsp/transaction";
+    }
     @RequestMapping("changeTel")
     public String updateTel(){
         return "jsp/changeTel";

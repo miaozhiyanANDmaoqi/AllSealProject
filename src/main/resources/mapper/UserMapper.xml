@@ -10,24 +10,36 @@
         <result column="sign_in_date" property="sign_in_date" jdbcType="VARCHAR"/>
         <result column="gender" property="gender" jdbcType="VARCHAR"/>
     </resultMap>
-    <select id="findUserByAccount" parameterType="string" resultType="User">
-        select * from `user` where account = #{account}
-    </select>
 
     <insert id="insertUser" parameterType="User">
         INSERT INTO user(account,pwd,tel,sign_in_date,gender) VALUES (
         #{account},#{pwd},#{tel},#{sign_in_date},#{gender})
     </insert>
 
-    <select id="findUserByTel" parameterType="String" resultType="User">
-        SELECT * from user where tel = #{tel}
-    </select>
-
-    <select id="findUserByAccountAndPwd" parameterType="User" resultMap="BaseResultMap">
-        SELECT * from user where account=#{account} AND pwd = #{pwd}
-    </select>
-
     <update id="updatePwd" parameterType="User">
         UPDATE user SET pwd = #{pwd} where id = #{id}
     </update>
+
+    
+    <select id="findUserByManyElement" parameterType="User" resultMap="BaseResultMap">
+        SELECT * FROM user WHERE TRUE
+        <if test="id!=null">
+            AND id=#{id}
+        </if>
+        <if test="account!=null">
+            AND account=#{account}
+        </if>
+        <if test="tel!=null">
+            AND tel=#{tel}
+        </if>
+        <if test="pwd!=null">
+            AND pwd=#{pwd}
+        </if>
+        <if test="gender!=null">
+            AND gender=#{gender}
+        </if>
+        <if test="sign_in_date!=null">
+            AND sign_in_date=#{sign_in_date}
+        </if>
+    </select>
 </mapper>

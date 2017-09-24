@@ -39,11 +39,10 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">宝贝<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">书籍</a></li>
-                        <li><a href="#">买错了的衣物</a></li>
-                        <li><a href="#">电子产品</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li><a href="#">不可描述的生活用品</a></li>
+                        <li class="list-group-item list-group-item-success"><a href="#">书籍<span class="glyphicon glyphicon-book" aria-hidden="true"/></a></li>
+                        <li class="list-group-item list-group-item-warning"><a href="#">买错了的衣物<span class="glyphicon glyphicon-gift" aria-hidden="true"/></a></li>
+                        <li class="list-group-item list-group-item-info"><a href="#">电子产品<span class="glyphicon glyphicon-hdd" aria-hidden="true"/></a></li>
+                        <li class="list-group-item list-group-item-warning"><a href="#">不可描述的生活用品<span class="glyphicon glyphicon-heart" aria-hidden="true"/></a></li>
                     </ul>
                 </li>
             </ul>
@@ -51,21 +50,21 @@
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"/>查询<</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li id="loginId">
-                    <c:if test="${not empty Account}"><a>${Account.account}</a></c:if>
-                    <c:if test="${empty Account }"><a href="/login">未登录</a></c:if>
+                    <c:if test="${not empty Account}"><a><span class="glyphicon glyphicon-user" aria-hidden="true"/>${Account.account}</a></c:if>
+                    <c:if test="${empty Account }"><a href="/login"><span class="glyphicon glyphicon-user" aria-hidden="true"/>未登录</a></c:if>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的帐户 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/login">个人信息</a></li>
-                        <li><a href="/myInfo">我的消息</a></li>
-                        <li><a href="#">买卖记录</a></li>
+                        <li><a href="/myInfo"><span class="glyphicon glyphicon-user" aria-hidden="true"/>个人信息</a></li>
+                        <li><a href="/communication"><span class="glyphicon glyphicon-comment" aria-hidden="true"/>聊天消息 <span class="badge">3</span></a></li>
+                        <li><a href="/transaction"><span class="glyphicon glyphicon-usd" aria-hidden="true"/>交易记录</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="/logout">退出登录</a></li>
+                        <li class="list-group-item list-group-item-danger"><a href="/logout"><span class="glyphicon glyphicon-off" aria-hidden="true"/>退出登录</a></li>
                     </ul>
                 </li>
             </ul>

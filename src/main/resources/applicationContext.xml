@@ -28,7 +28,7 @@
         <property name="configLocation" value="classpath:MyBatisConfig.xml"/>
         <!-- 显式指定Mapper文件位置 -->
         <property name="mapperLocations">
-            <value>classpath*:/mapper/UserMapper.xml</value>
+            <value>classpath*:/mapper/*Mapper.xml</value>
         </property>
         <property name="typeAliasesPackage" value="com.domain.eneity"/>
     </bean>
