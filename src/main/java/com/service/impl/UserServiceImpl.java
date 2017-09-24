@@ -100,7 +100,6 @@ public class UserServiceImpl implements UserService{
            return SucceedOrFail.success.getCode();
        }
     }
-
     /**
      * 用户注销
      * @param request
