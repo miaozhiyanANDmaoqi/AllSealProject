@@ -29,7 +29,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">买买买网</a>
+            <a class="navbar-brand" href="/index.jsp">买买买网</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,6 +45,7 @@
                         <li class="list-group-item list-group-item-warning"><a href="#">不可描述的生活用品<span class="glyphicon glyphicon-heart" aria-hidden="true"/></a></li>
                     </ul>
                 </li>
+                <li id="rank" ><a href="#">排行榜<span class="glyphicon glyphicon-star" aria-hidden="true"/></a></li>
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">
