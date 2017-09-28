@@ -11,7 +11,7 @@
     <title>聊天消息</title>
 </head>
 
-<body>
+<body style="background: url(/img/cloth2.jpg);  text-align:center">
 <%@include file="head.jsp"%>
 
 <!--左半部分-->

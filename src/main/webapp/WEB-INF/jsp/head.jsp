@@ -12,9 +12,9 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
     <!--  Bootstrap 核心 JavaScript 文件 -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <!-- 本地Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
     <title>导航栏</title>
 </head>
 <body>

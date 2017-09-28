@@ -11,7 +11,7 @@
     <title>交易记录</title>
 </head>
 
-<body>
+<body style="background: url(/img/cloth.jpg);  text-align:center">
 <%@include file="head.jsp"%>
 
 <!--左半部分-->
