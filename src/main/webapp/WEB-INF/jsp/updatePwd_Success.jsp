@@ -11,8 +11,10 @@
     <title>密码修改成功</title>
 </head>
 <body style="background: url(/img/cloth2.jpg);  text-align:center">
-修改密码成功! <span id="second">3</span>秒后跳转到首页!
-若为跳转，请点击<a href="../../index.jsp">这里</a>
+    <div class="center-block">
+        修改密码成功! <span id="second">3</span>秒后跳转到首页!
+        若为跳转，请点击<a href="../../index.jsp">这里</a>
+    </div>
 </body>
 </html>
 <script type="text/javascript">

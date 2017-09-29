@@ -11,8 +11,10 @@
     <title>Title</title>
 </head>
 <body style="background: url(/img/cloth2.jpg);  text-align:center">
-    e~!,出错啦！<span id="second">3</span>秒后跳转到首页!
-    若为跳转，请点击<a href="../../index.jsp">这里</a>
+    <div class="center-block">
+        e~!,出错啦！<span id="second">3</span>秒后跳转到首页!
+        若为跳转，请点击<a href="../../index.jsp">这里</a>
+    </div>
 </body>
 </html>
 <script type="text/javascript">

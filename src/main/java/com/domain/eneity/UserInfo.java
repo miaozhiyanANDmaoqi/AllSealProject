@@ -1,6 +1,8 @@
 package com.domain.eneity;
 
-public class UserInfo {
+import java.io.Serializable;
+
+public class UserInfo implements Serializable {
     private Integer id;
     private String signature;
     private double allpurchase;

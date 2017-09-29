@@ -2,8 +2,9 @@ package com.domain.po;
 
 import com.domain.eneity.User;
 import com.domain.eneity.UserInfo;
+import java.io.Serializable;
 
-public class User_AllInfo {
+public class User_AllInfo implements Serializable {
     private Integer id;
     private String account;
     private String tel;
