@@ -85,7 +85,8 @@
                 </div>
                 <span class="input-group-addon" id="detailed-signature">签名介绍</span>
                 <div class="input-group">
-                    <input name="signature" type="text" aria-describedby="basic-addon1" class="form-control" id="signature" placeholder="输入签名介绍" value="${Account.sign_in_date}"><span id="signatureSpan">还可以输入170个文字</span>
+                    <span class="input-group-addon">-</span>
+                    <input name="signature" type="textarea" aria-describedby="basic-addon1" class="form-control" id="signature" placeholder="输入签名介绍" value="${Account.sign_in_date}"><span id="signatureSpan">还可以输入170个文字</span>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-3">

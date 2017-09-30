@@ -82,6 +82,7 @@
             </div>
             <span class="input-group-addon" id="detailed-signature">签名介绍</span>
             <div class="input-group">
+                <span class="input-group-addon">-</span>
                 <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
             </div>
 

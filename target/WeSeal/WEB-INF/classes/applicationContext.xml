@@ -17,6 +17,9 @@
         http://www.springframework.org/schema/aop
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
+    <!--引入properties配置文件-->
+    <context:property-placeholder location="classpath:jdbcProperties.properties"/>
+
     <!--spring扫描包-->
     <context:component-scan base-package="com.service"/>
     <context:component-scan base-package="com.dao"/>
@@ -24,10 +27,10 @@
     <!--数据源-->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close"
-          p:driverClassName="com.mysql.cj.jdbc.Driver"
-          p:url="jdbc:mysql://192.168.1.102:3306/allseal?characterEncoding=utf8&amp;useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useSSL=true"
-          p:username="root"
-          p:password="mzy!!!123"/>
+          p:driverClassName="${jdbc.driverClassName}"
+          p:url="${jdbc.url}"
+          p:username="${jdbc.username}"
+          p:password="${jdbc.password}"/>
 
     <!--spring事务管理-->
     <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

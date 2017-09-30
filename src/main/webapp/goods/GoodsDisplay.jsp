@@ -18,77 +18,103 @@
 <!--导航栏-->
 <%@include file="../WEB-INF/jsp/head.jsp"%>
 <!--头页-->
-<div class="jumbotron" style="background-color:honeydew; text-align:center" >
-    <h1> 骚年，等你很久了! <small>好货尽在!</small></h1>
+<div class="jumbotron" style="background-color:#c0a16b; text-align:center" >
+    <h1 style="text-decoration-color: #8c8c8c"> 骚年，等你很久了! <small>好货尽在!</small></h1>
 </div>
-<!--左半部显示商品-->
-<div class="col-xs-8">
-    <h3>分类<span class="label label-default">商品信息</span></h3>
-    <table>
-        <%--<c:forEach items="" var="">--%>
-            <%--<div>--%>
-                <%--<div class="col-xs-5">--%>
-                    <%--<h1>12312312312332</h1>--%>
-                <%--</div>--%>
-                <%--<div class="col-xs-6">--%>
-                    <%--<h1>88888888888</h1>--%>
-                <%--</div>--%>
-            <%--</div>--%>
-        <tr>
-            <div class="panel panel-warning">
-                <div class="panel-body">
-                   商品名称
-                </div>
-                <div class="panel-footer">
-                    <div class="col-xs-6 col-md-3">
-                        <a href="#" class="thumbnail">
-                            <img src="/img/street.jpg" alt="...">
-                        </a>
+<div>
+    <!--左半部显示商品-->
+    <div class="col-xs-8">
+        <span class="label label-default">商品类别</span>
+        <table>
+            <%--<c:forEach>--%>
+            <tr>
+                <div class="panel panel-warning">
+                    <div class="panel-body">
+                        商品名称
+                    </div>
+                    <div class="panel-footer" style="height: 170px;">
+                        <%--图片展示区--%>
+                        <div class="col-xs-6 col-md-3" >
+                            <a href="#" class="thumbnail">
+                                <img src="/img/street.jpg" alt="..." class="img-rounded" style="width: auto;height: 100%;">
+                            </a>
+                        </div>
+                        <%--商品信息--%>
+                        <div style="height: 100%;">
+                            <div style="margin-right: 0px">商品描述</div>
+                            <div style="margin-right: 0px">商品价格</div>
+                            <div style="margin-right: 0px">上线日期</div>
+                            <div  class="alert alert-info">浏览次数</div>
+                            <div style="margin-right: 0px">卖家信息</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </tr>
-        <%--</c:forEach>--%>
-    </table>
-</div>
-<!--右半部显示本页信息-->
-<div class="col-xs-4">
-    <ul class="list-group">
-        <a href="#" class="list-group-item active">按时间顺序排序</a>
-        <a href="#" class="list-group-item">按价格排序(低到高)</a>
-        <a href="#" class="list-group-item">按价格排序(高到低)</a>
-        <a href="#" class="list-group-item">按访问量排序</a>
-        <a href="#" class="list-group-item">按卖家信用排序</a>
-    </ul>
-    <span></span>
-    <div class="list-group">
-        <li role="separator" class="divider"></li>
-        <a href="#" class="list-group-item">
-           本网信息统计
-        </a>
+            </tr>
+            <tr>
+                <div class="panel panel-warning">
+                    <div class="panel-body">
+                        商品名称
+                    </div>
+                    <div class="panel-footer" style="height: 170px;">
+                        <%--图片展示区--%>
+                        <div class="col-xs-6 col-md-3" >
+                            <a href="#" class="thumbnail">
+                                <img src="/img/street.jpg" alt="..." class="img-rounded" style="width: auto;height: 100%;">
+                            </a>
+                        </div>
+                        <%--商品信息--%>
+                        <div style="height: 100%;">
+                            <div style="margin-right: 0px">商品描述</div>
+                            <div style="margin-right: 0px">商品价格</div>
+                            <div style="margin-right: 0px">上线日期</div>
+                            <div  class="alert alert-info">浏览次数</div>
+                            <div style="margin-right: 0px">卖家信息</div>
+                        </div>
+                    </div>
+                </div>
+            </tr>
+            <%--</c:forEach>--%>
+        </table>
     </div>
+    <!--右半部显示本页信息-->
+    <div class="col-xs-4">
+        <ul class="list-group">
+            <a href="#" class="list-group-item active">按时间顺序排序</a>
+            <a href="#" class="list-group-item">按价格排序(低到高)</a>
+            <a href="#" class="list-group-item">按价格排序(高到低)</a>
+            <a href="#" class="list-group-item">按访问量排序</a>
+            <a href="#" class="list-group-item">按卖家信用排序</a>
+        </ul>
+        <span></span>
+        <div class="list-group">
+            <li role="separator" class="divider"></li>
+            <a href="#" class="list-group-item">
+                本网信息统计
+            </a>
+        </div>
+    </div>
+
+    <!--底部分页-->
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
-
-<!--底部分页-->
-<nav aria-label="Page navigation">
-    <ul class="pagination">
-        <li>
-            <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li>
-            <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    </ul>
-</nav>
 </body>
 </html>
