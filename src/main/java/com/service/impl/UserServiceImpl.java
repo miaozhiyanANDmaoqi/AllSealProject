@@ -181,7 +181,7 @@ public class UserServiceImpl implements UserService{
         }
     }
 
-    public int updatepwd(User user,HttpServletRequest request){
+    public int updatepwd(User user,HttpServletRequest request,HttpServletResponse response){
         User_AllInfo user_allInfo = (User_AllInfo)request.getSession().getAttribute("Account");
         user_allInfo.setPwd(user.getPwd());
         request.getSession().setAttribute("Account",user_allInfo);

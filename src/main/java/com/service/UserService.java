@@ -20,5 +20,5 @@ public interface UserService {
     //修改所有信息
     public int updateAllInfo(HttpServletRequest request);
     //修改密码
-    public int updatepwd(User user,HttpServletRequest request);
+    public int updatepwd(User user,HttpServletRequest request,HttpServletResponse response);
 }

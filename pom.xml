@@ -121,6 +121,8 @@
       <artifactId>commons-io</artifactId>
       <version>2.5</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+
   </dependencies>
   <build>
     <finalName>WeSeal</finalName>

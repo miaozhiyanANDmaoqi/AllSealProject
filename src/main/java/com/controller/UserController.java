@@ -57,8 +57,8 @@ public class UserController {
     }
 
     @RequestMapping("updatePwd")
-    public String updatePwd(User user,HttpServletRequest request){
-        if(userService.updatepwd(user,request)==1){
+    public String updatePwd(User user,HttpServletRequest request,HttpServletResponse response){
+        if(userService.updatepwd(user,request,response)==1){
             return "jsp/updatePwd_Success";
         } else{
             return "jsp/error";
@@ -93,26 +93,25 @@ public class UserController {
     }
 
     @RequestMapping("myInfo")
-    public String myInfo(){
+    public String myInfo(HttpServletRequest request){
         return "jsp/myInfo";
     }
-
     @RequestMapping("changePwd")
-    public String updateUser(){
+    public String changePwd(HttpServletRequest request){
         return "jsp/changePwd";
     }
 
     @RequestMapping("communication")
-    public String communication(){
+    public String communication(HttpServletRequest request){
         return "jsp/communication";
     }
 
     @RequestMapping("transaction")
-    public String transaction(){
+    public String transaction(HttpServletRequest request){
         return "jsp/transaction";
     }
     @RequestMapping("changeUserInfo")
-    public String updateTel(){
+    public String changeUserInfo(HttpServletRequest request){
         return "jsp/changeUserInfo";
     }
 
