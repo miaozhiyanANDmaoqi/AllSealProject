@@ -9,6 +9,7 @@
   <url>http://maven.apache.org</url>
 
   <properties>
+    <!--spring 包的版本-->
     <spring.version>4.3.10.RELEASE</spring.version>
   </properties>
 
