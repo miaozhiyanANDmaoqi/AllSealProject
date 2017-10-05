@@ -86,11 +86,6 @@
                 <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
             </div>
 
-
-
-            完善程度:
-            进度条测试
-            red
             <div class="progress">
                 <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
                     <span class="sr-only">80% Complete (danger)</span>
