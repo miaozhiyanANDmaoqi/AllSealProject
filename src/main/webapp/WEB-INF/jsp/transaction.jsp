@@ -16,7 +16,7 @@
     $(document).ready(function () {
         var $spans = $("#panelBody").children("div").children("div").hide().end().children("span");
         $spans.click(function () {
-            var d = $(this).css("font-size","14px").nextAll().toggle()<%--当前节点的所有孩子都显示(改为切换toggle)--%>
+            var d = $(this).nextAll().toggle()<%--当前节点的所有孩子都显示(改为切换toggle)--%>
                 .parent().siblings().children("div").hide()<%--父节点的兄弟节点的div孩子都隐藏--%>
                 .end().children("span").css("font-size","14px");<%--父节点的兄弟节点的span孩子字体还原--%>
         });

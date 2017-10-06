@@ -10,13 +10,12 @@
 <head>
     <title>我的信息</title>
 </head>
-
 <body>
 <%@include file="head.jsp"%>
 <!--左半部分-->
     <div class="col-xs-2">
         <div class="thumbnail">
-            <img src="${pageContext.request.contextPath}/upload/userIcon/${Account.id}.jpg" alt="暂无头像">
+            <img id="user_icon" src="${pageContext.request.contextPath}/upload/userIcon/${Account.id}.jpg" alt="暂无头像">
             <div class="caption">
                 <h4>基本信息</h4>
                 <h5>账户:${Account.account}</h5>
@@ -64,11 +63,11 @@
                 <span class="input-group-addon" id="detailed-Email">邮箱</span>
                 <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
             </div>
-            <div class="input-group">
+            <div class="input-group"id="out_EXP">
                 <span class="input-group-addon" id="detailed-EXP">经验值</span>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                        40% Complete (success)
+                    <div id="EXP_progress" title="exp啊！" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                        80% Complete (success)
                     </div>
                 </div>
             </div>
@@ -92,12 +91,25 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-warning" id="changeButton">修改信息</button>
+        <button type="button" class="btn btn-warning" id="changeButton" title="点击修改个人信息">修改信息</button>
     </div>
 </body>
 <script type="text/javascript">
-    $("#changeButton").click(function () {
-        location.href="/changeUserInfo";
+    $(document).ready(function () {
+        $("#changeButton").click(function () {
+            location.href="/changeUserInfo";
+        });
+
+        $("#user_icon").hover(function (event) {
+            var big_icon = $("<img id=\"big_icon\" src=\"${pageContext.request.contextPath}/upload/userIcon/${Account.id}.jpg\" alt=\"暂无头像\">");
+            big_icon.offset({"left":event.pageX+5,"top":event.pageY-20,"height":"200px","width":"150px"});
+            big_icon.appendTo("body").show();
+        },
+        function () {
+            $("#big_icon").remove();
+        }).mousemove(function (event) {
+            $("#big_icon").offset({"left":event.pageX+5,"top":event.pageY-20,"height":"200px","width":"150px"});
+        });
     });
 </script>
 </html>

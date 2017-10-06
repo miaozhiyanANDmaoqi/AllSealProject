@@ -112,9 +112,14 @@
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
                         if (newTel.value.length == 0) {
-                            telSpan.innerHTML = "";
+                            telSpan.innerHTML = "请输入电话";
                             telRight = false;
-                        } else if (reg.test(newTel.value)) {
+                            telSpan.className = "text-warning";
+                        } else if(newTel.value == ${sessionScope.Account.tel}){
+                            telSpan.innerHTML = "电话未修改";
+                            telRight = true;
+                            telSpan.className = "text-success";
+                        }else if (reg.test(newTel.value)) {
                             if (xhr.responseText == -2) {
                                 telSpan.innerHTML = "该号码已经注册";
                                 telSpan.className = "text-warning";
