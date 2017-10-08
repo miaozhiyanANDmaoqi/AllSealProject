@@ -6,9 +6,9 @@ public class GoodsInfo implements Serializable{
     private Integer gid;
     private Integer uid;
     private String online_time;
-    private double price;
+    private double price = -1;
     private String description;
-    private Integer type;//1.书籍 2.衣物 3.电子产品 4.其他杂物
+    private Integer goodstype;//1.书籍 2.衣物 3.电子产品 4.其他杂物
 
     @Override
     public String toString() {
@@ -18,8 +18,17 @@ public class GoodsInfo implements Serializable{
                 ", online_time='" + online_time + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
-                ", type=" + type +
+                ", goodstype=" + goodstype +
                 '}';
+    }
+
+    /*
+    * 利用阿里的JSON转换器，就不需要这个方法了
+    * */
+    public String jsonString(){
+        return "{\"gid\":\""+gid+"\",\"uid\":\""+uid+"\",\"online_time\":\""+online_time+"\"" +
+                ",\"price\":\""+price+"\",\"description\":\""+description+"\"" +
+                ",\"goodstype\":\""+goodstype+"\"}";
     }
 
     public Integer getGid() {
@@ -62,11 +71,11 @@ public class GoodsInfo implements Serializable{
         this.description = description;
     }
 
-    public Integer getType() {
-        return type;
+    public Integer getGoodstype() {
+        return goodstype;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setGoodstype(Integer goodstype) {
+        this.goodstype = goodstype;
     }
 }

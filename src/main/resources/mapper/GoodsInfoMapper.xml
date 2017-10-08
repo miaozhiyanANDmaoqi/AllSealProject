@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.dao.GoodsMapper">
+    <sql id="baseColumnList">
+        gid,uid,online_time,price,description,goodstype
+    </sql>
+    <select id="listGoods" parameterType="GoodsInfo" resultType="GoodsInfo">
+        SELECT
+        <include refid="baseColumnList"/>
+        FROM goodsinfo
+        WHERE TRUE
+        <if test="gid!=null">
+            AND gid = #{gid}
+        </if>
+        <if test="uid!=null">
+            AND uid = #{uid}
+        </if>
+        <if test="online_time!=null">
+            AND online_time = #{online_time}
+        </if>
+        <if test="price!=null and price!=-1">
+            AND price = #{price}
+        </if>
+        <if test="description!=null">
+            AND description = #{description}
+        </if>
+        <if test="goodstype!=null">
+            AND goodstype = #{goodstype}
+        </if>
+    </select>
+</mapper>

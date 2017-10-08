@@ -1,11 +1,14 @@
 package com.service.impl;
 
+import com.dao.GoodsMapper;
+import com.domain.eneity.GoodsInfo;
 import com.service.GoodsService;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -16,6 +19,13 @@ import java.util.UUID;
 
 @Service
 public class GoodsServiceImpl implements GoodsService{
+    @Autowired
+    private GoodsMapper goodsMapper;
+
+    public List<GoodsInfo> listGoods(GoodsInfo goodsInfo) {
+        List<GoodsInfo> goodsInfoList = goodsMapper.listGoods(goodsInfo);
+        return goodsInfoList;
+    }
 
     public void uploadFile(HttpServletRequest request){
         try {

@@ -19,6 +19,7 @@
     <p><a class="btn btn-primary btn-lg" href="/goods/GoodsDisplay.jsp" role="button">访问最新宝贝</a></p>
 </div>
 <a href="/test">跳转页面</a>
+<a href="/jsontest.jsp">json测试</a>
 </body>
 
 
