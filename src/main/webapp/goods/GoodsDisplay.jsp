@@ -14,6 +14,7 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>最新动态</title>
 </head>
+
 <body style="background: url(/img/cloth2.jpg);  text-align:center">
 <!--导航栏-->
 <%@include file="../WEB-INF/jsp/head.jsp"%>
@@ -148,7 +149,7 @@
             for(var i=0;i<data.length;i++){
                 var POJO = data[i];
                 $("#goodsTable").append(
-                   " <tr>\n" +
+                   " <tr><td style=\"width: 1000px;\">\n" +
                     "                <div class=\"panel panel-warning\">\n" +
                     "                    <div class=\"panel-body\">\n" +
                     "                        商品名称\n" +
@@ -170,10 +171,11 @@
                     "                        </div>\n" +
                     "                    </div>\n" +
                     "                </div>\n" +
-                    "          </tr>"
+                    "          </td></tr>"
                 );
             }
         });
     });
 </script>
+
 </html>
