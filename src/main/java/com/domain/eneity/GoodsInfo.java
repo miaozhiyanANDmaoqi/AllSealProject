@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class GoodsInfo implements Serializable{
     private Integer gid;
     private Integer uid;
+    private String goodsName;
     private String online_time;
     private double price = -1;
     private String description;
@@ -15,6 +16,7 @@ public class GoodsInfo implements Serializable{
         return "GoodsInfo{" +
                 "gid=" + gid +
                 ", uid=" + uid +
+                ", goodsName='" + goodsName + '\'' +
                 ", online_time='" + online_time + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
@@ -23,12 +25,20 @@ public class GoodsInfo implements Serializable{
     }
 
     /*
-    * 利用阿里的JSON转换器，就不需要这个方法了
-    * */
+        * 利用阿里的JSON转换器，就不需要这个方法了
+        * */
     public String jsonString(){
         return "{\"gid\":\""+gid+"\",\"uid\":\""+uid+"\",\"online_time\":\""+online_time+"\"" +
                 ",\"price\":\""+price+"\",\"description\":\""+description+"\"" +
                 ",\"goodstype\":\""+goodstype+"\"}";
+    }
+
+    public String getGoodsName() {
+        return goodsName;
+    }
+
+    public void setGoodsName(String goodsName) {
+        this.goodsName = goodsName;
     }
 
     public Integer getGid() {

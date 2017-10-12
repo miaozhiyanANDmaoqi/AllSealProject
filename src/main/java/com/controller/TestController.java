@@ -1,8 +1,6 @@
 package com.controller;
 
 import com.domain.eneity.User;
-import com.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,7 +34,7 @@ public class TestController {
 
     @RequestMapping("/jsontestj")
     @ResponseBody
-    public void jsonTest(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public User jsonTest(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String method = request.getMethod();
         System.out.println("method:"+method);
         String AC = request.getParameter("account");
@@ -46,7 +44,9 @@ public class TestController {
 //        String json = "{'message':'成功了'}";
         response.setContentType("application/json;charset=UTF-8");
 //        response.setContentType("text/html;charset=UTF-8");
-        response.getWriter().write(json);
+//        response.getWriter().write(json);
+        User user = new User();
+        return user;
 //        return json;
     }
 }

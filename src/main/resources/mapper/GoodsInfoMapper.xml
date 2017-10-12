@@ -3,7 +3,7 @@
 
 <mapper namespace="com.dao.GoodsMapper">
     <sql id="baseColumnList">
-        gid,uid,online_time,price,description,goodstype
+        gid,goodsname,uid,online_time,price,description,goodstype
     </sql>
     <select id="listGoods" parameterType="GoodsInfo" resultType="GoodsInfo">
         SELECT
@@ -12,6 +12,9 @@
         WHERE TRUE
         <if test="gid!=null">
             AND gid = #{gid}
+        </if>
+        <if test="goodsName!=null">
+            AND goodsname = #{goodsname}
         </if>
         <if test="uid!=null">
             AND uid = #{uid}

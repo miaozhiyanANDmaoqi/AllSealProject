@@ -23,21 +23,21 @@
 //                 $.post(url,params,function (data) {
 //                     alert(data);
 //                 });
-                 $.get(url,params,function (data) {
-                     alert(data.message);
-                 });
-//                 $.ajax({
-//                     "url":url,
-//                     "data":params,
-//                     "type":"POST",
-//                     "success":function (data) {
-//                         alert(data);
-//                     },
-//                     "error":function () {
-//                         alert("服务器忙");
-//                     },
-//                     "dataType":"json"
+//                 $.get(url,params,function (data) {
+//                     alert(data.message);
 //                 });
+                 $.ajax({
+                     "url":url,
+                     "data":params,
+                     "type":"POST",
+                     "success":function (data) {
+                         alert(data);
+                     },
+                     "error":function () {
+                         alert("服务器忙");
+                     },
+                     "dataType":"json"
+                 });
              }
          }
     </script>
