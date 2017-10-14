@@ -10,6 +10,18 @@ public class User implements Serializable{
     private String sign_in_date;
     private Integer id;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "account='" + account + '\'' +
+                ", tel='" + tel + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", gender='" + gender + '\'' +
+                ", sign_in_date='" + sign_in_date + '\'' +
+                ", id=" + id +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

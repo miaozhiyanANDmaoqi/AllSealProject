@@ -34,19 +34,32 @@ public class TestController {
 
     @RequestMapping("/jsontestj")
     @ResponseBody
-    public User jsonTest(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String method = request.getMethod();
-        System.out.println("method:"+method);
-        String AC = request.getParameter("account");
-        String tel = request.getParameter("tel");
+    public User jsonTest(String s) throws IOException {
+//        String method = request.getMethod();
+//        System.out.println("method:"+method);
+//        String AC = request.getParameter("account");
+//        String tel = request.getParameter("tel");
         String asd = "成功了";
         String json = "{\"message\":\"成功了!\"}";
 //        String json = "{'message':'成功了'}";
-        response.setContentType("application/json;charset=UTF-8");
+//        response.setContentType("application/json;charset=UTF-8");
 //        response.setContentType("text/html;charset=UTF-8");
 //        response.getWriter().write(json);
         User user = new User();
         return user;
 //        return json;
+    }
+
+    @RequestMapping("/rjsonrjson")
+    public @ResponseBody User rjsonrjson(@RequestBody User user){
+        System.out.println(user);
+        return new User();
+    }
+
+    @RequestMapping("/rpojorjson")
+    public @ResponseBody User rpojorjson(User user){
+        System.out.println(user);
+
+        return new User();
     }
 }

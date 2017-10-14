@@ -16,6 +16,7 @@
              btn1.onclick = function () {
                  var url = "/jsontestj";
                  var params = {"account":"杰克","tel":"15527097561"};
+                 var jsonuser = JSON.stringify(params);
 //                 $(this).load(url,params,function (data) {
 //                     var jsonData = eval("("+data+")");
 //                     alert(jsonData.message);
@@ -29,21 +30,58 @@
                  $.ajax({
                      "url":url,
                      "data":params,
-                     "type":"POST",
+                     "type":'POST',
+                     "contentType":'application/json;charset=utf-8',
                      "success":function (data) {
                          alert(data);
                      },
                      "error":function () {
                          alert("服务器忙");
                      },
-                     "dataType":"json"
+                     "dataType":'json'
                  });
              }
+
+         }
+         function bt2click() {
+             var params = JSON.stringify({"account":"缪治安","tel":"15527097561"});
+             $.ajax({
+                 type:'POST',
+                 url:'/rjsonrjson',
+                 contentType:'application/json;charset=utf-8',
+                 dataType:'json',
+                 data:{"account":"缪治安","tel":"15527097561"},
+                 success:function (data) {
+                     alert(data);
+                 },
+                 error:function () {
+                     alert("error");
+                 }
+             });
+         }
+
+         function bt3click() {
+             var params = JSON.stringify({"account":"缪治666","tel":"15527097561"});
+             $.ajax({
+                 type:'POST',
+                 url:'/rpojorjson',
+//                 contentType:'application/json;charset=utf-8',
+                 dataType:'json',
+                 data:'account=缪治666&tel=15527097561&pwd=123',
+                 success:function (data) {
+                     alert(data);
+                 },
+                 error:function () {
+                     alert("error");
+                 }
+             });
          }
     </script>
 </head>
 <body>
 json test!
 <button type="button" id="btn1">test</button>
+<button type="button" id="btn2" onclick="bt2click()">请求json,返回json</button>
+<button type="button" id="btn3" onclick="bt3click()">请求pojo,返回json</button>
 </body>
 </html>
