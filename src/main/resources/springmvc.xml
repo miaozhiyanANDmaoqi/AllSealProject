@@ -30,11 +30,7 @@
     <!--</bean>-->
 
     <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>-->
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">-->
-        <!--<property name="messageConverters">-->
-            <!--<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>-->
-        <!--</property>-->
-    <!--</bean>-->
+    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
 
     <mvc:annotation-driven>
         <mvc:message-converters>
@@ -61,7 +57,37 @@
     <!--加载静态资源需要该配置-->
     <mvc:default-servlet-handler/>
 
-
+    <!--&lt;!&ndash;spring mvc 多视图支持 利用内容导航视图解析&ndash;&gt;-->
+    <!--<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">-->
+        <!--&lt;!&ndash;内容导航管理&ndash;&gt;-->
+        <!--<property name="contentNegotiationManager">-->
+            <!--<bean class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">-->
+                <!--<property name="mediaTypes">-->
+                    <!--<map>-->
+                        <!--<entry key="json" value="application/json"/>-->
+                        <!--<entry key="xml" value="application/xml"/>-->
+                    <!--</map>-->
+                <!--</property>-->
+            <!--</bean>-->
+        <!--</property>-->
+        <!--&lt;!&ndash;配置默认视图&ndash;&gt;-->
+        <!--<property name="defaultViews">-->
+            <!--<list>-->
+                <!--&lt;!&ndash;xml的视图&ndash;&gt;-->
+                <!--<bean class="org.springframework.web.servlet.view.xml.MarshallingView">-->
+                    <!--<constructor-arg>-->
+                        <!--<bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">-->
+                            <!--<property name="classesToBeBound">-->
+                                <!--<list>-->
+                                    <!--&lt;!&ndash;<value>类的绝对路径</value> 类加上@XmlRootElement注解&ndash;&gt;-->
+                                <!--</list>-->
+                            <!--</property>-->
+                        <!--</bean>-->
+                    <!--</constructor-arg>-->
+                <!--</bean>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/"
