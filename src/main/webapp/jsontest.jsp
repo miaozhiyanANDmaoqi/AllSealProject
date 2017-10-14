@@ -50,7 +50,7 @@
                  url:'/rjsonrjson',
                  contentType:'application/json;charset=utf-8',
                  dataType:'json',
-                 data:{"account":"缪治安","tel":"15527097561"},
+                 data:params,
                  success:function (data) {
                      alert(data);
                  },
