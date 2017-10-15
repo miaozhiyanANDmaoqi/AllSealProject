@@ -35,14 +35,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li id="indexId"><a href="/index.jsp">首页<span class="sr-only">(current)</span></a></li>
-                <li id="registerId" ><a href="register">注册帐号</a></li>
+                <li id="registerId" ><a href="/User/register">注册帐号</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">宝贝<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="list-group-item list-group-item-success"><a href="#">书籍<span class="glyphicon glyphicon-book" aria-hidden="true"/></a></li>
-                        <li class="list-group-item list-group-item-warning"><a href="#">买错了的衣物<span class="glyphicon glyphicon-gift" aria-hidden="true"/></a></li>
-                        <li class="list-group-item list-group-item-info"><a href="#">电子产品<span class="glyphicon glyphicon-hdd" aria-hidden="true"/></a></li>
-                        <li class="list-group-item list-group-item-warning"><a href="#">不可描述的生活用品<span class="glyphicon glyphicon-heart" aria-hidden="true"/></a></li>
+                        <li class="list-group-item list-group-item-success"><a href="/goods/GoodsDisplay.jsp?goodstype=1">书籍<span class="glyphicon glyphicon-book" aria-hidden="true"/></a></li>
+                        <li class="list-group-item list-group-item-warning"><a href="/goods/GoodsDisplay.jsp?goodstype=2">买错了的衣物<span class="glyphicon glyphicon-gift" aria-hidden="true"/></a></li>
+                        <li class="list-group-item list-group-item-info"><a href="/goods/GoodsDisplay.jsp?goodstype=3">电子产品<span class="glyphicon glyphicon-hdd" aria-hidden="true"/></a></li>
+                        <li class="list-group-item list-group-item-warning"><a href="/goods/GoodsDisplay.jsp?goodstype=4">其他生活用品<span class="glyphicon glyphicon-heart" aria-hidden="true"/></a></li>
                     </ul>
                 </li>
                 <li id="rank" ><a href="#">排行榜<span class="glyphicon glyphicon-star" aria-hidden="true"/></a></li>

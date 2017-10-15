@@ -96,8 +96,10 @@
 </body>
 <script type="text/javascript">
     $(document).ready(function () {
-        <%--获取商品信息，按照时间顺序--%>
-        var url = "/Goods/listGoods";
+        <%--获取商品信息--%>
+        var type =${pageContext.request.getParameter("goodstype")};
+        url = "/Goods/listGoods?goodstype="+type;
+
         $.get(url,function (data) {
 //            var jsonData = eval(data);
             for(var i=0;i<data.length;i++){

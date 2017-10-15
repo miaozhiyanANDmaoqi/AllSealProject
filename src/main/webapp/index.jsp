@@ -16,7 +16,7 @@
 
     <h1>欢迎光临二手交易市场</h1>
     <p><%=session.getId()%></p>
-    <p><a class="btn btn-primary btn-lg" href="/goods/GoodsDisplay.jsp" role="button">访问最新宝贝</a></p>
+    <p><a class="btn btn-primary btn-lg" href="/goods/GoodsDisplay.jsp?goodstype=0" role="button">访问最新宝贝</a></p>
 </div>
 <a href="/test">跳转页面</a>
 <a href="/jsontest.jsp">json测试</a>

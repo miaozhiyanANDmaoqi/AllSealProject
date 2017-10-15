@@ -24,8 +24,12 @@ public class GoodsController {
     }
 
     @RequestMapping("/listGoods")
-    public void listGoods(HttpServletResponse response){
+    public void listGoods(HttpServletResponse response,HttpServletRequest request){
         GoodsInfo goodsInfo = new GoodsInfo();
+        String typeStr = request.getParameter("goodstype");
+        if(null != typeStr && !typeStr.equals("0")){
+            goodsInfo.setGoodstype(Integer.parseInt(typeStr));
+        }
         List goodslist = goodsService.listGoods(goodsInfo);
         try {
             response.setContentType("application/json;charset=UTF-8");
