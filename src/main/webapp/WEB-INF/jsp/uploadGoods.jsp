@@ -16,8 +16,22 @@
 </head>
 <body style="background: url(/img/cloth.jpg);  text-align:center">
 <%@include file="head.jsp"%>
+<script src="/js/jquery.form.js"></script>
 <script type="text/javascript">
-
+    function submitIMG(){
+        var uploadData = {
+            type:'POST',
+            url:'${pageContext.request.contextPath}/Goods/uploadGoodsIMG',
+            dataType:'text',
+            data:{
+                fileName:'file'
+            },
+            success:function (data) {
+                $("#IMG").attr("src","${pageContext.request.contextPath}/upload/Goods/"+data);
+            }
+        };
+        $("#itemForm").ajaxSubmit(uploadData);
+    }
 </script>
 <!--左半部分-->
 <div class="col-xs-2">
@@ -49,7 +63,7 @@
     </div>
 
     <div class="panel-body" id="panelBody">
-        <form class="form-horizontal" action="/Goods/addGoods" onsubmit="" method="post">
+        <form id="itemForm" class="form-horizontal" action="/Goods/addGoods"  method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
                 <label for="goodsName" class="col-sm-2 control-label">商品名称</label>
@@ -86,7 +100,8 @@
             </div>
             <div>
                 <%--上传商品图片--%>
-               <img src="${pageContext.request.contextPath}/img/addFile.jpg" width="50px" height="50px" style="left: 10px"/>
+                <input type="file" name="file" onchange="submitIMG()"/>
+               <img id="IMG" src="${pageContext.request.contextPath}/img/addFile.jpg" width="100px" height="100px" style="left: 10px"/>
             </div>
             <input type="hidden" name="uid" value="${sessionScope.Account.id}"/>
             <input type="submit" value="ok">
