@@ -15,7 +15,7 @@
 <%@include file="head.jsp"%>
 
 <!--表单-->
-<form class="form-horizontal" action="/checkLogin" onsubmit="return check()" method="post">
+<form class="form-horizontal" action="/User/checkLogin" onsubmit="return check()" method="post">
     <div class="form-group">
         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         <label for="inputAccount" class="col-sm-2 control-label">用户名</label>

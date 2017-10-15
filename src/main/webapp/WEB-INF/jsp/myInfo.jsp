@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>我的信息</title>
+    <%response.setHeader("Pragma","No-cache");  response.setHeader("Cache-Control","no-cache");  response.setDateHeader("Expires", 0);  response.flushBuffer();%>
 </head>
 <body>
 <%@include file="head.jsp"%>
@@ -20,7 +21,7 @@
                 <h4>基本信息</h4>
                 <h5>账户:${Account.account}</h5>
                 <p>
-                <form action="/uploadIcon" method="post" enctype="multipart/form-data">
+                <form action="/User/uploadIcon" method="post" enctype="multipart/form-data">
                     <input type="file" name="${Account.id}" class="btn btn-default col-sm-7"/>
                     <input type="submit" value="上传头像" class="btn btn-primary"/>
                 </form>
@@ -28,10 +29,10 @@
             </div>
         </div>
         <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active"><a href="/myInfo">我的信息</a></li>
-            <li role="presentation"><a href="/communication">聊天消息<span class="badge">14</span></a></li>
-            <li role="presentation"><a href="/transaction">交易记录</a></li>
-            <li role="presentation"><a href="/changePwd">修改密码</a></li>
+            <li role="presentation" class="active"><a href="/User/myInfo">我的信息</a></li>
+            <li role="presentation"><a href="/User/communication">聊天消息<span class="badge">14</span></a></li>
+            <li role="presentation"><a href="/User/transaction">交易记录</a></li>
+            <li role="presentation"><a href="/User/changePwd">修改密码</a></li>
         </ul>
     </div>
     <!--右半部分-->
@@ -97,7 +98,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $("#changeButton").click(function () {
-            location.href="/changeUserInfo";
+            location.href="/User/changeUserInfo";
         });
 
         $("#user_icon").hover(function (event) {

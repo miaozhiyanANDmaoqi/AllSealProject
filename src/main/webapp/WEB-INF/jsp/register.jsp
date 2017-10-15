@@ -190,7 +190,7 @@
             }
         }
         <!--建立连接-->
-        xmlhttp.open("get","signInCheckAccAndTel?account="+accountIn.value+"&tel="+inputTel.value);
+        xmlhttp.open("get","/User/signInCheckAccAndTel?account="+accountIn.value+"&tel="+inputTel.value);
         <!--发送请求-->
         xmlhttp.send(null);
     }

@@ -97,7 +97,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         <%--获取商品信息，按照时间顺序--%>
-        var url = "/listGoods";
+        var url = "Goods/listGoods";
         $.get(url,function (data) {
 //            var jsonData = eval(data);
             for(var i=0;i<data.length;i++){

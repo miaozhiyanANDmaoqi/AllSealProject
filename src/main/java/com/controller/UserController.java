@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @Controller
+@RequestMapping("User")
 public class UserController {
     @Autowired
     private UserService userService;

@@ -89,6 +89,12 @@
         <!--</property>-->
     <!--</bean>-->
 
+    <!--文件上传的视图解析器-->
+    <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="5120"/><!--最大5MB-->
+    </bean>
+
+    <!--最常见的视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/"
           p:suffix=".jsp"/>

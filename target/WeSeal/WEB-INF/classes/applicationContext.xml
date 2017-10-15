@@ -55,9 +55,10 @@
         <property name="typeAliasesPackage" value="com.domain.eneity"/>
     </bean>
 
+    <!--mapper接口代理开发 扫描包里面的所有类-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.dao" />
-        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
     <!--<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->

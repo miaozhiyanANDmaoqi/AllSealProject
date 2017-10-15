@@ -56,16 +56,16 @@
             <ul class="nav navbar-nav navbar-right">
                 <li id="loginId">
                     <c:if test="${not empty Account}"><a><span class="glyphicon glyphicon-user" aria-hidden="true"/>${Account.account}</a></c:if>
-                    <c:if test="${empty Account }"><a href="/login"><span class="glyphicon glyphicon-user" aria-hidden="true"/>未登录</a></c:if>
+                    <c:if test="${empty Account }"><a href="/User/login"><span class="glyphicon glyphicon-user" aria-hidden="true"/>未登录</a></c:if>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">我的帐户 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/myInfo"><span class="glyphicon glyphicon-user" aria-hidden="true"/>个人信息</a></li>
-                        <li><a href="/communication"><span class="glyphicon glyphicon-comment" aria-hidden="true"/>聊天消息 <span class="badge">3</span></a></li>
-                        <li><a href="/transaction"><span class="glyphicon glyphicon-usd" aria-hidden="true"/>交易记录</a></li>
+                        <li><a href="/User/myInfo"><span class="glyphicon glyphicon-user" aria-hidden="true"/>个人信息</a></li>
+                        <li><a href="/User/communication"><span class="glyphicon glyphicon-comment" aria-hidden="true"/>聊天消息 <span class="badge">3</span></a></li>
+                        <li><a href="/User/transaction"><span class="glyphicon glyphicon-usd" aria-hidden="true"/>交易记录</a></li>
                         <li role="separator" class="divider"></li>
-                        <li class="list-group-item list-group-item-danger"><a href="/logout"><span class="glyphicon glyphicon-off" aria-hidden="true"/>退出登录</a></li>
+                        <li class="list-group-item list-group-item-danger"><a href="/User/logout"><span class="glyphicon glyphicon-off" aria-hidden="true"/>退出登录</a></li>
                     </ul>
                 </li>
             </ul>
