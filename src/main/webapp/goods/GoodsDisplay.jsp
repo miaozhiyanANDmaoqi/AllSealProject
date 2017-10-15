@@ -28,29 +28,29 @@
         <span class="label label-default">商品类别</span>
         <table id="goodsTable">
             <%--<c:forEach>--%>
-            <tr>
-                <div class="panel panel-warning">
-                    <div class="panel-body">
-                        商品名称
-                    </div>
-                    <div class="panel-footer" style="height: 170px;">
-                        <%--图片展示区--%>
-                            <div class="col-xs-6 col-md-3" >
-                                <a href="#" class="thumbnail">
-                                    <img src="/img/street.jpg" alt="..." class="img-rounded" style="width: auto;height: 100%;">
-                                </a>
-                            </div>
-                            <%--商品信息--%>
-                            <div style="height: 100%;">
-                                <div style="margin-right: 0px">商品描述</div>
-                                <div style="margin-right: 0px">商品价格</div>
-                                <div style="margin-right: 0px">上线日期</div>
-                                <div  class="alert alert-info">浏览次数</div>
-                                <div style="margin-right: 0px">卖家信息</div>
-                            </div>
-                    </div>
-                </div>
-            </tr>
+            <%--<tr>--%>
+                <%--<div class="panel panel-warning">--%>
+                    <%--<div class="panel-body">--%>
+                        <%--商品名称--%>
+                    <%--</div>--%>
+                    <%--<div class="panel-footer" style="height: 170px;">--%>
+                        <%--&lt;%&ndash;图片展示区&ndash;%&gt;--%>
+                            <%--<div class="col-xs-6 col-md-3" >--%>
+                                <%--<a href="#" class="thumbnail">--%>
+                                    <%--<img src="/img/street.jpg" alt="..." class="img-rounded" style="width: auto;height: 100%;">--%>
+                                <%--</a>--%>
+                            <%--</div>--%>
+                            <%--&lt;%&ndash;商品信息&ndash;%&gt;--%>
+                            <%--<div style="height: 100%;">--%>
+                                <%--<div style="margin-right: 0px">商品描述</div>--%>
+                                <%--<div style="margin-right: 0px">商品价格</div>--%>
+                                <%--<div style="margin-right: 0px">上线日期</div>--%>
+                                <%--<div  class="alert alert-info">浏览次数</div>--%>
+                                <%--<div style="margin-right: 0px">卖家信息</div>--%>
+                            <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</tr>--%>
             <%--</c:forEach>--%>
         </table>
     </div>
@@ -97,7 +97,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         <%--获取商品信息，按照时间顺序--%>
-        var url = "Goods/listGoods";
+        var url = "/Goods/listGoods";
         $.get(url,function (data) {
 //            var jsonData = eval(data);
             for(var i=0;i<data.length;i++){

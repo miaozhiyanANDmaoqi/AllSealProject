@@ -43,7 +43,7 @@
     </div>
 
     <div class="panel-body">
-        <form action="updatePwd" method="post" onsubmit="return check()" >
+        <form action="/User/updatePwd" method="post" onsubmit="return check()" >
         <div class="form-group">
         <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
         <label for="oldPwd">旧的密码</label>

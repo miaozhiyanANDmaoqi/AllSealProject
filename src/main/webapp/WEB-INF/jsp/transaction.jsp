@@ -9,7 +9,10 @@
 <html>
 <head>
     <title>交易记录</title>
-    <%response.setHeader("Pragma","No-cache");  response.setHeader("Cache-Control","no-cache");  response.setDateHeader("Expires", 0);  response.flushBuffer();%>
+    <%response.setHeader("Pragma","No-cache");
+        response.setHeader("Cache-Control","no-cache");
+        response.setDateHeader("Expires", 0);
+        response.flushBuffer();%>
 </head>
 <body style="background: url(/img/cloth.jpg);  text-align:center">
 <%@include file="head.jsp"%>
@@ -20,6 +23,10 @@
             var d = $(this).nextAll().toggle()<%--当前节点的所有孩子都显示(改为切换toggle)--%>
                 .parent().siblings().children("div").hide()<%--父节点的兄弟节点的div孩子都隐藏--%>
                 .end().children("span").css("font-size","14px");<%--父节点的兄弟节点的span孩子字体还原--%>
+        });
+
+        $("#Btn_uploadGoods").click(function () {
+            location.href="/Goods/uploadGoods";
         });
     });
 </script>
@@ -70,8 +77,8 @@
             <div><a>正在出售的物品1</a></div>
             <div><a>正在出售的物品2</a></div>
         </div>
+        <div><button id="Btn_uploadGoods" class="btn btn-warning">我要上货</button></div>
     </div>
-
 </div>
 
 

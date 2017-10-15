@@ -1,6 +1,6 @@
 package com.service.impl;
 
-import com.dao.GoodsMapper;
+import com.dao.GoodsInfoMapper;
 import com.domain.eneity.GoodsInfo;
 import com.service.GoodsService;
 import org.apache.commons.fileupload.FileItem;
@@ -10,20 +10,35 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class GoodsServiceImpl implements GoodsService{
     @Autowired
-    private GoodsMapper goodsMapper;
+    private GoodsInfoMapper goodsInfoMapper;
+
+    public int addGoods(GoodsInfo goodsInfo) {
+        //设置上传日期
+        goodsInfo.setOnline_time(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        //设置商品的id
+        Random random = new Random();
+        Integer gid = random.nextInt(Integer.MAX_VALUE)+goodsInfo.getUid()*31;
+        goodsInfo.setGid(gid);
+        //插入商品表
+        return goodsInfoMapper.insertGoods(goodsInfo);
+    }
 
     public List<GoodsInfo> listGoods(GoodsInfo goodsInfo) {
-        List<GoodsInfo> goodsInfoList = goodsMapper.listGoods(goodsInfo);
+        List<GoodsInfo> goodsInfoList = goodsInfoMapper.listGoods(goodsInfo);
         return goodsInfoList;
     }
 

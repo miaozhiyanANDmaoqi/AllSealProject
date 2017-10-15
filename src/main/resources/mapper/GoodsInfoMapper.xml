@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.dao.GoodsMapper">
+<mapper namespace="com.dao.GoodsInfoMapper">
+    <resultMap id="BaseResultMap" type="com.domain.eneity.GoodsInfo">
+        <id column="gid" property="gid" jdbcType="INTEGER"/>
+        <id column="uid" property="uid" jdbcType="INTEGER"/>
+        <result column="goodsname" property="goodsName" jdbcType="VARCHAR"/>
+        <result column="online_time" property="online_time" jdbcType="VARCHAR"/>
+        <result column="price" property="price" jdbcType="DOUBLE"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="goodstype" property="goodstype" jdbcType="INTEGER"/>
+    </resultMap>
+
     <sql id="baseColumnList">
         gid,goodsname,uid,online_time,price,description,goodstype
     </sql>
@@ -14,7 +24,7 @@
             AND gid = #{gid}
         </if>
         <if test="goodsName!=null">
-            AND goodsname = #{goodsname}
+            AND goodsname = #{goodsName}
         </if>
         <if test="uid!=null">
             AND uid = #{uid}
@@ -32,4 +42,53 @@
             AND goodstype = #{goodstype}
         </if>
     </select>
+    <insert id="insertGoods" parameterType="GoodsInfo">
+        INSERT INTO goodsinfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="gid!=null">
+                gid,
+            </if>
+            <if test="uid!=null">
+                uid,
+            </if>
+            <if test="goodsName!=null">
+                goodsname,
+            </if>
+            <if test="online_time!=null">
+                online_time,
+            </if>
+            <if test="price!=null">
+                price,
+            </if>
+            <if test="description!=null">
+                description,
+            </if>
+            <if test="goodstype!=null">
+                goodstype,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="gid!=null">
+                #{gid},
+            </if>
+            <if test="uid!=null">
+                #{uid},
+            </if>
+            <if test="goodsName!=null">
+                #{goodsName},
+            </if>
+            <if test="online_time!=null">
+                #{online_time},
+            </if>
+            <if test="price!=null">
+                #{price},
+            </if>
+            <if test="description!=null">
+                #{description},
+            </if>
+            <if test="goodstype!=null">
+                #{goodstype},
+            </if>
+        </trim>
+    </insert>
 </mapper>

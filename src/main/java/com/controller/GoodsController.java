@@ -35,4 +35,16 @@ public class GoodsController {
             e.printStackTrace();
         }
     }
+
+    @RequestMapping("addGoods")
+    public String addGoods(GoodsInfo goodsInfo){
+        goodsService.addGoods(goodsInfo);
+        return "jsp/transaction";
+    }
+
+
+    @RequestMapping("uploadGoods")
+    public String uploadGoods(){
+        return "jsp/uploadGoods";
+    }
 }
