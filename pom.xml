@@ -142,6 +142,13 @@
       <artifactId>oscache</artifactId>
       <version>2.4.1</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker
+    freemarker的支持-->
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.26-incubating</version>
+    </dependency>
 
   </dependencies>
   <build>

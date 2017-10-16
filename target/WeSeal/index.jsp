@@ -20,6 +20,7 @@
 </div>
 <a href="/test">跳转页面</a>
 <a href="/jsontest.jsp">json测试</a>
+<a href="/User/otherUserInfo">freemarker测试</a>
 </body>
 
 
