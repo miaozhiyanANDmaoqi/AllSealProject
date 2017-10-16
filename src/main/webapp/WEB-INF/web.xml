@@ -43,4 +43,23 @@
     <filter-name>characterEncodingFilter</filter-name>
     <url-pattern>/</url-pattern>
   </filter-mapping>
+
+  <!--页面缓存-->
+  <filter>
+    <filter-name>oscache</filter-name>
+    <filter-class>com.opensymphony.oscache.web.filter.CacheFilter</filter-class>
+    <init-param>
+      <param-name>time</param-name><!--20秒同步一次数据库-->
+      <param-value>20</param-value>
+    </init-param>
+    <init-param>
+      <param-name>scope</param-name><!--缓存的存在范围-->
+      <param-value>application</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>oscache</filter-name><!--缓存的url路径-->
+    <url-pattern>/goods/GoodsDisplay.jsp</url-pattern>
+  </filter-mapping>
 </web-app>

@@ -98,6 +98,9 @@ public class UserServiceImpl implements UserService{
            u.setId(userreturn.getId());
            UserInfo userInfo = userInfoMapper.findUserInfo(u);//根据user的id找到对应的userinfo
            User_AllInfo user_allInfo = new User_AllInfo(userreturn,userInfo);//合并数据
+           if(null == user_allInfo.getEmail()){
+               user_allInfo.setEmail("");
+           }
            request.getSession().setAttribute("Account",user_allInfo);
            return SucceedOrFail.success.getCode();
        }
@@ -166,13 +169,19 @@ public class UserServiceImpl implements UserService{
 
     public int updateAllInfo( HttpServletRequest request) {
         User_AllInfo user_allInfo = (User_AllInfo) request.getSession().getAttribute("Account");
+
         User user = user_allInfo.getUser();
         user.setTel(request.getParameter("Ntel"));
+
         UserInfo userInfo = user_allInfo.getUserInfo();
         userInfo.setEmail(request.getParameter("Email"));
         userInfo.setSignature(request.getParameter("signature"));
+
         int userinfoflag = userInfoMapper.updateUserInfo(userInfo);
         int userflag = userMapper.updateUser(user);
+
+        user_allInfo = new User_AllInfo(user,userInfo);
+        request.getSession().setAttribute("Account",user_allInfo);
         if (userflag==1 && userinfoflag==1){
             return SucceedOrFail.success.getCode();
         }else{

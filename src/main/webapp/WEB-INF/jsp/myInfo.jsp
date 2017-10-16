@@ -62,28 +62,28 @@
             <span class="input-group-addon" id="detailed-info">详细信息:</span>
             <div class="input-group">
                 <span class="input-group-addon" id="detailed-Email">邮箱</span>
-                <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+                <label class="form-control" aria-describedby="basic-addon1">Account.Email</label>
             </div>
             <div class="input-group"id="out_EXP">
                 <span class="input-group-addon" id="detailed-EXP">经验值</span>
                 <div class="progress">
                     <div id="EXP_progress" title="exp啊！" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                        80% Complete (success)
+                        80% Complete (success)${Account.EXP}
                     </div>
                 </div>
             </div>
             <div class="input-group">
                 <span class="input-group-addon" id="detailed-allseal">出售总额</span>
-                <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+                <label class="form-control" aria-describedby="basic-addon1">${Account.allseal}</label>
             </div>
             <div class="input-group">
                 <span class="input-group-addon" id="detailed-purchase">购买总额</span>
-                <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+                <label class="form-control" aria-describedby="basic-addon1">${Account.allpurchase}</label>
             </div>
             <span class="input-group-addon" id="detailed-signature">签名介绍</span>
             <div class="input-group">
                 <span class="input-group-addon">-</span>
-                <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+                <label class="form-control" aria-describedby="basic-addon1">${Account.signature}</label>
             </div>
 
             <div class="progress">

@@ -30,7 +30,7 @@ public class User_AllInfo implements Serializable {
         this.allpurchase=userInfo.getAllpurchase();
         this.allseal=userInfo.getAllseal();
         this.EXP=userInfo.getEXP();
-        this.Email=this.getEmail();
+        this.Email=userInfo.getEmail();
     }
     public UserInfo getUserInfo(){
         UserInfo userInfo = new UserInfo();

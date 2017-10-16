@@ -65,28 +65,28 @@
                 <span class="input-group-addon" id="detailed-info">详细信息:</span>
                 <div class="input-group">
                     <span class="input-group-addon" id="detailed-Email">邮箱</span>
-                    <input name="Email" type="text" aria-describedby="basic-addon1" class="form-control" id="inputEmail" placeholder="输入邮箱" value="${Account.sign_in_date}"><span id="EmailSpan"></span>
+                    <input name="Email" type="text" aria-describedby="basic-addon1" class="form-control" id="inputEmail" placeholder="输入邮箱" value="Account.Email"><span id="EmailSpan"></span>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon" id="detailed-EXP">经验值</span>
                     <div class="progress">
                         <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                            40% Complete (success)
+                            40% Complete (success)${Account.EXP}
                         </div>
                     </div>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon" id="detailed-allseal">出售总额</span>
-                    <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+                    <label class="form-control" aria-describedby="basic-addon1">${Account.allseal}</label>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon" id="detailed-purchase">购买总额</span>
-                    <label class="form-control" aria-describedby="basic-addon1">${Account.sign_in_date}</label>
+                    <label class="form-control" aria-describedby="basic-addon1">${Account.allpurchase}</label>
                 </div>
                 <span class="input-group-addon" id="detailed-signature">签名介绍</span>
                 <div class="input-group">
                     <span class="input-group-addon">-</span>
-                    <input name="signature" type="textarea" aria-describedby="basic-addon1" class="form-control" id="signature" placeholder="输入签名介绍" value="${Account.sign_in_date}"><span id="signatureSpan">还可以输入170个文字</span>
+                    <input name="signature" type="textarea" aria-describedby="basic-addon1" class="form-control" id="signature" placeholder="输入签名介绍" value="${Account.signature}"><span id="signatureSpan">还可以输入170个文字</span>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-3">
@@ -106,7 +106,7 @@
     var telSpan = document.getElementById("telSpan");
     var telRight = false ;
     var reg=/^1+[35678]+[0-9]{9}$/;
-    newTel.onblur = function () {
+    newTel.onmousemove = function () {
         var xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4) {
