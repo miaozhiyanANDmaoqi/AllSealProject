@@ -39,6 +39,7 @@
           <element id="library" level="project" name="Maven: opensymphony:oscache:2.4.1" />
           <element id="library" level="project" name="Maven: javax.jms:jms:1.1" />
           <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.26-incubating" />
+          <element id="library" level="project" name="Maven: org.apache.lucene:lucene-core:7.1.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

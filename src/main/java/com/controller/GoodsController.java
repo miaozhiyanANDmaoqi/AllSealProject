@@ -54,7 +54,7 @@ public class GoodsController {
         return "jsp/transaction";
     }
     @RequestMapping("uploadGoodsIMG")
-    public void uploadGoodsIMG(HttpServletRequest request,HttpServletResponse response) {
+    public void uploadGoodsIMG(HttpServletRequest request, HttpServletResponse response) {
         try {
             request.setCharacterEncoding("UTF-8");
             MultipartResolver resolver = new CommonsMultipartResolver(request.getSession().getServletContext());

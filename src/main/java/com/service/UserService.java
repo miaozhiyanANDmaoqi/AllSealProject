@@ -10,7 +10,7 @@ public interface UserService {
     //注册
     public int registerAccount(User user);
     //登录
-    public int loginCheck(User user, HttpServletRequest request);
+    public int loginCheck(User user, HttpServletRequest request,HttpServletResponse response);
     //注册时候检测用户名和电话
     public int signInCheck(User user);
     //注销

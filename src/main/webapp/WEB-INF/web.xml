@@ -71,4 +71,8 @@
     <filter-name>oscache</filter-name><!--缓存的url路径-->
     <url-pattern>/goods/GoodsDisplay.jsp</url-pattern>
   </filter-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>

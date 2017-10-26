@@ -41,8 +41,8 @@ public class UserController {
     }
 
     @RequestMapping("checkLogin")
-    public String checkLogin(User user,HttpServletRequest request){
-        switch (userService.loginCheck(user,request)){
+    public String checkLogin(User user,HttpServletRequest request,HttpServletResponse response){
+        switch (userService.loginCheck(user,request,response)){
             case 1:
                 return "jsp/success_login";
             default:

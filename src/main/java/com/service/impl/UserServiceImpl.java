@@ -14,6 +14,8 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
@@ -89,8 +91,11 @@ public class UserServiceImpl implements UserService{
      * @param request
      * @return
      */
-    public int loginCheck(User user,HttpServletRequest request) {
+    public int loginCheck(User user,HttpServletRequest request,HttpServletResponse response) {
+        //获取用户输入的账号和密码
        User userreturn = userMapper.findUserByManyElement(user);
+
+       //查询用户信息
        if(null == userreturn){
            return SucceedOrFail.failure.getCode();
        }else{
@@ -102,6 +107,24 @@ public class UserServiceImpl implements UserService{
                user_allInfo.setEmail("");
            }
            request.getSession().setAttribute("Account",user_allInfo);
+
+           //是否记住账户
+           String rememberAcc = request.getParameter("rememberAcc");
+           Cookie cookie_Account = new Cookie("Account",user.getAccount());
+           cookie_Account.setPath(request.getContextPath());
+           Cookie cookie_Password = new Cookie("Password",user.getPwd());
+           cookie_Password.setPath(request.getContextPath());
+           if(rememberAcc!=null){
+               cookie_Account.setMaxAge(Integer.MAX_VALUE);
+               cookie_Password.setMaxAge(Integer.MAX_VALUE);
+           }else{
+               cookie_Account.setMaxAge(0);
+               cookie_Password.setMaxAge(0);
+           }
+           //写回cookie 到客户端
+           response.addCookie(cookie_Account);
+           response.addCookie(cookie_Password);
+
            return SucceedOrFail.success.getCode();
        }
     }
