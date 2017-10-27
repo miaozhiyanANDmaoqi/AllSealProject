@@ -2,7 +2,6 @@ package com.controller.indexOfLucene;
 
 import com.domain.eneity.GoodsInfo;
 import com.service.GoodsService;
-import com.service.impl.GoodsServiceImpl;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -12,11 +11,9 @@ import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
