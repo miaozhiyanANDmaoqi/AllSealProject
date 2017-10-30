@@ -2,15 +2,21 @@ package com.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.domain.eneity.GoodsInfo;
+import com.domain.eneity.GoodsMessage;
+import com.domain.po.GoodsDetial;
 import com.domain.po.User_AllInfo;
+import com.service.GoodsMessageService;
 import com.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
@@ -24,6 +30,8 @@ import java.util.List;
 public class GoodsController {
     @Autowired
     GoodsService goodsService;
+    @Autowired
+    GoodsMessageService messageService;
 
     @RequestMapping("uploadGood")
     public String uploadGood(HttpServletRequest request){
@@ -31,6 +39,16 @@ public class GoodsController {
         return "jsp/myInfo";
     }
 
+    @RequestMapping("/goodsDetial")
+    @ResponseBody
+    public GoodsDetial goodsDetial(@RequestBody GoodsInfo goodsInfo){
+        GoodsInfo goods= null;
+        List<GoodsMessage> msgs;
+        goods = goodsService.listGoods(goodsInfo).get(0);//通过id只取得第一个
+        msgs = messageService.queryMSG(goodsInfo);
+        GoodsDetial result = new GoodsDetial(goods,msgs);
+        return result;
+    }
     @RequestMapping("/listGoods")
     public void listGoods(HttpServletResponse response,HttpServletRequest request){
         GoodsInfo goodsInfo = new GoodsInfo();

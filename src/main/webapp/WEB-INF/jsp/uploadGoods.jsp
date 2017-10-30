@@ -63,7 +63,7 @@
     </div>
 
     <div class="panel-body" id="panelBody">
-        <form id="itemForm" class="form-horizontal" action="/Goods/addGoods"  method="post" enctype="multipart/form-data">
+        <form id="itemForm" class="form-horizontal" action="/Goods/addGoods"  method="post" <%--enctype="multipart/form-data"--%>>
             <div class="form-group">
                 <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
                 <label for="goodsName" class="col-sm-2 control-label">商品名称</label>

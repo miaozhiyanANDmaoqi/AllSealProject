@@ -113,7 +113,7 @@
                     "                    <div class=\"panel-footer\" style=\"height: 170px;\">\n" +
                     "                        <%--图片展示区--%>\n" +
                     "                        <div class=\"col-xs-6 col-md-3\" >\n" +
-                    "                            <a href=\"#\" class=\"thumbnail\">\n" +
+                    "                            <a href=\"/goods/GoodsDetial.jsp?gid="+POJO.gid+"&thisGoodsName="+POJO.goodsName+"\" class=\"thumbnail\">\n" +
                     "                                <img src=\"/img/street.jpg\" alt=\"...\" class=\"img-rounded\" style=\"width: auto;height: 100%;\">\n" +
                     "                            </a>\n" +
                     "                        </div>\n" +
