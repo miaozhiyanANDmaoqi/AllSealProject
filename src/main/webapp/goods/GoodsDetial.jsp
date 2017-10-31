@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.service.ServiceUtils.MessageObserver" %><%--
   Created by IntelliJ IDEA.
   User: lenovo
   Date: 2017-10-30
@@ -67,6 +67,7 @@
 
     function commitMessage() {
         var $message = $("#textarea").val();
+        $("#textarea").val("");
         $.ajax({
             type:'POST',
             url:'/GoodsMessage/commitGoodsMessage',
@@ -78,7 +79,7 @@
                     $("#messages").append(
                         "                <div class=\"panel panel-warning\">\n" +
                         "                    <div class=\"panel-body\">\n" +
-                        "       楼层："+i+1+"\n" +
+                        "       楼层："+i+"\n" +
                         "                    </div>\n" +
                         "                    <div class=\"panel-body\">\n" +
                         <%--用户信息--%>
@@ -94,14 +95,38 @@
                 }
             },
             error:function () {
-                alert("error");
+                alert("还未登录！请先登录");
+                location.href="/User/login";
             }
         });
     }
 
     $(document).ready(function () {
+        var url = "/GoodsMessage/addObserver";
+        var params = this;
+        <%--添加观察者--%>
+        $.ajax({
+            "url":url,
+            "data":params,
+            "type":'POST',
+            "success":function () {
+                alert("添加成功");
+            },
+            "error":function () {
+                alert("服务器忙");
+            },
+        });
+
         updateMessage();
     });
+
+    window.onunload= function () {
+        <%--var url = "/GoodsMessage/removeObserver";--%>
+        <%--var params = this;--%>
+        <%--&lt;%&ndash;移除观察者&ndash;%&gt;--%>
+        <%--$.post(url,params,function () {--%>
+        <%--});--%>
+    }
 </script>
 
 <!--左半部显示商品-->

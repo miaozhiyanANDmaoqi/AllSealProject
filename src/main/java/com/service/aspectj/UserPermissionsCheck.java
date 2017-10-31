@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 @Aspect
 public class UserPermissionsCheck {
 
-    @Around("execution(* com.controller.UserController.*(..))")
+    @Around("execution(* com.controller.UserController.*(..)) || execution(* com.controller.GoodsMessageController.*(..))")
     public Object userLoginCheck(ProceedingJoinPoint joinPoint)throws Throwable{
         Object result = null;
         //前执行

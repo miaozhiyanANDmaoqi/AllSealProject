@@ -1,5 +1,6 @@
 package com.service.impl;
 
+import com.controller.GoodsMessageController;
 import com.dao.GoodsMessageMapper;
 import com.domain.eneity.GoodsInfo;
 import com.domain.eneity.GoodsMessage;
