@@ -1,10 +1,13 @@
 package com.service.aspectj;
 
+import com.domain.annotation.Check;
 import com.domain.po.User_AllInfo;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,9 +19,14 @@ public class UserPermissionsCheck {
     public Object userLoginCheck(ProceedingJoinPoint joinPoint)throws Throwable{
         Object result = null;
         //前执行
-        String methodName = joinPoint.getSignature().getName();
-        if(methodName.equals("changePwd")||methodName.equals("communication")||methodName.equals("transaction")||
-                methodName.equals("changeUserInfo")||methodName.equals("myInfo")){
+
+//        把方法名写死
+//        String methodName = joinPoint.getSignature().getName();
+//        if(methodName.equals("changePwd")||methodName.equals("communication")||methodName.equals("transaction")||
+//                methodName.equals("changeUserInfo")||methodName.equals("myInfo")){
+
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        if(methodSignature.getMethod().isAnnotationPresent(Check.class)){//有@Check注解就执行
             HttpServletRequest request = null;
             HttpServletResponse response = null;
             Object [] args = joinPoint.getArgs();

@@ -66,7 +66,37 @@
     }
 
     function commitMessage() {
-        alert("adasd");
+        var $message = $("#textarea").val();
+        $.ajax({
+            type:'POST',
+            url:'/GoodsMessage/commitGoodsMessage',
+            dataType:'json',
+            data:'text='+$message+'&gid='+${requestScope.get("gid")},
+            success:function (data) {
+                $("#messages").empty();<%--清空所有的子元素--%>
+                for(var i=0;i< data.length;i++){
+                    $("#messages").append(
+                        "                <div class=\"panel panel-warning\">\n" +
+                        "                    <div class=\"panel-body\">\n" +
+                        "       楼层："+i+1+"\n" +
+                        "                    </div>\n" +
+                        "                    <div class=\"panel-body\">\n" +
+                        <%--用户信息--%>
+                        "                        <div class=\"col-xs-4 col-md-3\" >"+
+                        "                            <h6>留言时间："+data[i].messageDate+"</h6> &nbsp &nbsp "+
+                        "                            <h6>留言用户ID:"+data[i].uid+"</h6>"+
+                        "                        </div>"+
+                        <%--留言信息--%>
+                        "                           <div>"+data[i].text+"</div>"+
+                        "                    </div>" +
+                        "                </div>"
+                    );
+                }
+            },
+            error:function () {
+                alert("error");
+            }
+        });
     }
 
     $(document).ready(function () {
@@ -90,7 +120,7 @@
         <%--发表留言的地方--%>
         <div>
             <div class="alert alert-info" role="alert">发表留言</div>
-            <textarea style="width: 100%;height: 200px"></textarea>
+            <textarea id="textarea" style="width: 100%;height: 200px"></textarea>
             <button type="button" class="btn btn-info" style="margin-right: 8px" onclick="commitMessage()">发表</button>
         </div>
 

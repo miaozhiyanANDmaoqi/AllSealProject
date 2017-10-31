@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.domain.Emnu.SucceedOrFail;
+import com.domain.annotation.Check;
 import com.domain.eneity.User;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,28 +93,36 @@ public class UserController {
         return "jsp/login";
     }
 
+    @Check
     @RequestMapping("myInfo")
     public String myInfo(HttpServletRequest request){
         return "jsp/myInfo";
     }
+
+    @Check
     @RequestMapping("changePwd")
     public String changePwd(HttpServletRequest request){
         return "jsp/changePwd";
     }
 
+    @Check
     @RequestMapping("communication")
     public String communication(HttpServletRequest request){
         return "jsp/communication";
     }
 
+    @Check
     @RequestMapping("transaction")
     public String transaction(HttpServletRequest request){
         return "jsp/transaction";
     }
+
+    @Check
     @RequestMapping("changeUserInfo")
     public String changeUserInfo(HttpServletRequest request){
         return "jsp/changeUserInfo";
     }
+
     @RequestMapping("otherUserInfo")
     public String otherUserInfo(HttpServletRequest request){
         return "OtherUserInfo";
