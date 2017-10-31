@@ -24,7 +24,8 @@
 <!--导航栏-->
 <%@include file="../WEB-INF/jsp/head.jsp"%>
 <script type="text/javascript">
-    $(document).ready(function () {
+    
+    function updateMessage() {
         var params =JSON.stringify({"gid":${requestScope.get("gid")}});
         $.ajax({
             type:'POST',
@@ -41,20 +42,35 @@
                 $("#price").text(data.price);
                 for(var i=0;i< data.messages.length;i++){
                     $("#messages").append(
-                        "<div>"+
-                            "<div"+
-                            "<h6>留言时间："+data.messages[i].messageDate+"</h6> &nbsp &nbsp "+
-                            "<h6>留言用户ID:"+data.messages[i].uid+"</h6>"+
-                            "</div>"+
-                        "<div><text>"+data.messages[i].text+"</text></div>"+
-                        "</div>"
-                );
+                        "                <div class=\"panel panel-warning\">\n" +
+                        "                    <div class=\"panel-body\">\n" +
+                        "       楼层："+i+"\n" +
+                        "                    </div>\n" +
+                        "                    <div class=\"panel-body\">\n" +
+                        <%--用户信息--%>
+                        "                        <div class=\"col-xs-4 col-md-3\" >"+
+                        "                            <h6>留言时间："+data.messages[i].messageDate+"</h6> &nbsp &nbsp "+
+                        "                            <h6>留言用户ID:"+data.messages[i].uid+"</h6>"+
+                        "                        </div>"+
+                        <%--留言信息--%>
+                        "                           <div>"+data.messages[i].text+"</div>"+
+                        "                    </div>" +
+                        "                </div>"
+                    );
                 }
             },
             error:function () {
                 alert("error");
             }
         });
+    }
+
+    function commitMessage() {
+        alert("adasd");
+    }
+
+    $(document).ready(function () {
+        updateMessage();
     });
 </script>
 
@@ -69,10 +85,15 @@
             <h3 id="online_time"></h3>
             <h3 id="price"></h3>
         </div>
-        <%--留言板--%>
-    <div id="messages"  style="background-color: #faebcc">
+        <%--留言板，查看的地方--%>
+        <div id="messages"  style="background-color: #faebcc"></div>
+        <%--发表留言的地方--%>
+        <div>
+            <div class="alert alert-info" role="alert">发表留言</div>
+            <textarea style="width: 100%;height: 200px"></textarea>
+            <button type="button" class="btn btn-info" style="margin-right: 8px" onclick="commitMessage()">发表</button>
+        </div>
 
-    </div>
 </div>
 <!--右半部显示本页信息-->
 <div class="col-xs-4">

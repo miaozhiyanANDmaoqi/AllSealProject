@@ -53,7 +53,7 @@ public class GoodsController {
     public void listGoods(HttpServletResponse response,HttpServletRequest request){
         GoodsInfo goodsInfo = new GoodsInfo();
         String typeStr = request.getParameter("goodstype");
-        if(null != typeStr && !typeStr.equals("0")){
+        if(null != typeStr && !typeStr.equals("0")){//为0就不要，表示查询所有
             goodsInfo.setGoodstype(Integer.parseInt(typeStr));
         }
         List goodslist = goodsService.listGoods(goodsInfo);
