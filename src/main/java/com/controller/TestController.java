@@ -5,9 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
@@ -15,21 +12,6 @@ public class TestController {
     @RequestMapping("/test")
     public String test(){
         return "test";
-    }
-    @RequestMapping("/str")
-    @ResponseBody
-    public String str(){
-        return "string";
-    }
-
-    @RequestMapping("/go")
-    @ResponseBody
-    public User go(){
-        User u = new User();
-        u.setAccount("11234");
-        u.setPwd("222");
-        u.setTel("qweqwe");
-        return u;
     }
 
     @RequestMapping("/jsontestj")
