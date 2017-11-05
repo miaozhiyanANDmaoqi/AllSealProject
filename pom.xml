@@ -1,10 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <!--版本 一般4.0.0写死-->
   <modelVersion>4.0.0</modelVersion>
+  <!--组织名称 com.mzy.seal-->
   <groupId>WeSeal</groupId>
+  <!--项目名称-->
   <artifactId>WeSeal</artifactId>
+  <!--打包方式 默认jar ;有jar war pom-->
   <packaging>war</packaging>
+  <!--项目版本-->
   <version>1.0-SNAPSHOT</version>
+  <!--名称 ， 可省略-->
   <name>WeSeal Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
@@ -13,6 +19,7 @@
     <spring.version>4.3.10.RELEASE</spring.version>
   </properties>
 
+  <!--依赖关系-->
   <dependencies>
     <dependency>
       <groupId>org.springframework</groupId>
