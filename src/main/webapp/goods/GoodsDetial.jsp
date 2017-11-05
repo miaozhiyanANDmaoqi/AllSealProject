@@ -1,4 +1,4 @@
-<%@ page import="com.service.ServiceUtils.MessageObserver" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: lenovo
   Date: 2017-10-30
@@ -101,32 +101,13 @@
         });
     }
 
-    $(document).ready(function () {
-        var url = "/GoodsMessage/addObserver";
-        var params = this;
-        <%--添加观察者--%>
-        $.ajax({
-            "url":url,
-            "data":params,
-            "type":'POST',
-            "success":function () {
-                alert("添加成功");
-            },
-            "error":function () {
-                alert("服务器忙");
-            },
-        });
-
-        updateMessage();
-    });
-
-    window.onunload= function () {
-        <%--var url = "/GoodsMessage/removeObserver";--%>
-        <%--var params = this;--%>
-        <%--&lt;%&ndash;移除观察者&ndash;%&gt;--%>
-        <%--$.post(url,params,function () {--%>
-        <%--});--%>
-    }
+    setInterval(
+       function () {
+           $("#messages").empty();
+           updateMessage();
+       }
+        ,9900
+    )
 </script>
 
 <!--左半部显示商品-->

@@ -5,11 +5,11 @@ import com.domain.eneity.GoodsInfo;
 import com.domain.eneity.GoodsMessage;
 import com.domain.po.User_AllInfo;
 import com.service.GoodsMessageService;
-import com.service.ServiceUtils.MessageObserver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -39,13 +39,4 @@ public class GoodsMessageController {
         return goodsMessageService.queryMSG(goodsInfo);
     }
 
-    @RequestMapping("addObserver")
-    public void addObserver(Object object){
-        MessageObserver.addOberver(object);
-    }
-
-    @RequestMapping("removeObserver")
-    public void removeObserver(Object object){
-        MessageObserver.removeObserver(object);
-    }
 }
