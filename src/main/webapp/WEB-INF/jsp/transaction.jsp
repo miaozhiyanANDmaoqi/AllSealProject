@@ -34,6 +34,7 @@
 <div class="col-xs-2">
     <div class="thumbnail">
         <img src="${pageContext.request.contextPath}/upload/userIcon/${Account.id}.jpg" alt="暂无头像">
+        <a class="btn btn-success" id="ExportUserIcon" href="/User/exportUserIcon">导出头像</a>
         <div class="caption">
             <h4>基本信息</h4>
             <h5>账户:${Account.account}</h5>

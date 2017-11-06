@@ -1,10 +1,13 @@
 package com.service;
 
+import com.domain.MyException.UserIconNotFoundException;
 import com.domain.eneity.User;
 import com.domain.po.User_AllInfo;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public interface UserService {
     //注册
@@ -21,4 +24,6 @@ public interface UserService {
     public int updateAllInfo(HttpServletRequest request);
     //修改密码
     public int updatepwd(User user,HttpServletRequest request,HttpServletResponse response);
+    //导出用户头像
+    public void exportUserIcon(HttpServletRequest request,HttpServletResponse response) throws UserIconNotFoundException, IOException;
 }

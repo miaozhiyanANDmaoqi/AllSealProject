@@ -1,12 +1,14 @@
 package com.controller;
 
 import com.domain.Emnu.SucceedOrFail;
+import com.domain.MyException.UserIconNotFoundException;
 import com.domain.annotation.Check;
 import com.domain.eneity.User;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -79,6 +81,15 @@ public class UserController {
             return "jsp/myInfo";
         }else{
             return "jsp/error";
+        }
+    }
+
+    @RequestMapping("exportUserIcon")
+    public void exportUserIcon(HttpServletResponse response,HttpServletRequest request){
+        try {
+            userService.exportUserIcon(request,response);
+        } catch (UserIconNotFoundException | IOException e) {//jdk7新特性:多个catch合并
+            e.printStackTrace();
         }
     }
 
