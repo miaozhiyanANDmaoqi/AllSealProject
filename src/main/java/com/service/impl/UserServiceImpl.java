@@ -7,6 +7,7 @@ import com.domain.MyException.UserIconNotFoundException;
 import com.domain.eneity.User;
 import com.domain.eneity.UserInfo;
 import com.domain.po.User_AllInfo;
+import com.domain.utils.MD5Utils;
 import com.service.UserService;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -68,6 +69,7 @@ public class UserServiceImpl implements UserService {
     public int registerAccount(User user) {
         User user_acc = new User();
         user_acc.setAccount(user.getAccount());
+        user.setPwd(MD5Utils.md5(user.getPwd()));//对密码经行md5加密
         if (userMapper.findUserByManyElement(user_acc) != null) {
             return SucceedOrFail.failure.getCode();
         }
@@ -97,6 +99,7 @@ public class UserServiceImpl implements UserService {
      */
     public int loginCheck(User user, HttpServletRequest request, HttpServletResponse response) {
         //获取用户输入的账号和密码
+        user.setPwd(MD5Utils.md5(user.getPwd()));//对密码经行md5加密,在与加密后的密码进行比较
         User userreturn = userMapper.findUserByManyElement(user);
 
         //查询用户信息
@@ -221,7 +224,7 @@ public class UserServiceImpl implements UserService {
 
     public int updatepwd(User user, HttpServletRequest request, HttpServletResponse response) {
         User_AllInfo user_allInfo = (User_AllInfo) request.getSession().getAttribute("Account");
-        user_allInfo.setPwd(user.getPwd());
+        user_allInfo.setPwd(MD5Utils.md5(user.getPwd()));//md5加密
         request.getSession().setAttribute("Account", user_allInfo);
         return userMapper.updatePwd(user);
     }

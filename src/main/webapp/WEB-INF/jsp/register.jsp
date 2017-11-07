@@ -154,7 +154,7 @@
     }
 
     var submit = document.getElementById("submitButton");
-    submit.onmouseover = function () {
+    submit.onmousemove = function () {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if(xmlhttp.readyState==4){

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
 @Controller
 @RequestMapping("User")
@@ -33,7 +34,7 @@ public class UserController {
     }
 
     @RequestMapping("signIn")
-    public String signIn(User user){
+    public String signIn(User user,HttpServletRequest request) {
         int i = userService.registerAccount(user);
         if(SucceedOrFail.success.getCode() == i){
             return "jsp/success_register";
@@ -43,7 +44,7 @@ public class UserController {
     }
 
     @RequestMapping("checkLogin")
-    public String checkLogin(User user,HttpServletRequest request,HttpServletResponse response){
+    public String checkLogin(User user,HttpServletRequest request,HttpServletResponse response) throws UnsupportedEncodingException {
         switch (userService.loginCheck(user,request,response)){
             case 1:
                 return "jsp/success_login";
