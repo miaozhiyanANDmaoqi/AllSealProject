@@ -101,13 +101,42 @@
         });
     }
 
-    setInterval(
-       function () {
-           $("#messages").empty();
-           updateMessage();
-       }
-        ,9900
-    )
+//    setInterval(
+//       function () {
+//           $("#messages").empty();
+//           updateMessage();
+//       }
+//        ,9900
+//    )
+
+
+    updateMessage();
+    window.onload=function(){
+        document.getElementById("voteForGoods").onclick=function () {
+            var params = JSON.stringify({"gid":${pageContext.request.getAttribute("gid")},"uid":"${Account.id}"});
+            $.ajax({
+                type:'POST',
+                url:'/GoodsMessage/voteForGoods',
+                dataType:'json',
+                contentType:'application/json;charset=utf-8',
+                data:params,
+                success:function (data) {
+                    if(data == "jsp/login"){
+                        alert("你还未登录");
+                    }else if(data == "success"){
+                        alert("投票成功!");
+                    }else if(data == "repeatVote"){
+                        alert("投票失败，每天最多投一次哦!");
+                    }else{
+                        alert("error!出错了");
+                    }
+                },
+                error:function () {
+                    alert("服务器忙!");
+                }
+            });
+        }
+    }
 </script>
 
 <!--左半部显示商品-->
@@ -119,7 +148,8 @@
             <h3 id="type"></h3>
             <h3 id="gid"></h3>
             <h3 id="online_time"></h3>
-            <h3 id="price"></h3>
+            <h3 id="price"> </h3>
+            <img src="/img/good.jpg" id="voteForGoods" style="width: 30px;height: 30px" />
         </div>
         <%--留言板，查看的地方--%>
         <div id="messages"  style="background-color: #faebcc"></div>
@@ -149,4 +179,5 @@
     </div>
 </div>
 </body>
+
 </html>
