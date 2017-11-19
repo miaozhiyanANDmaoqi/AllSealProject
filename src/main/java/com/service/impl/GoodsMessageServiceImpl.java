@@ -45,6 +45,7 @@ public class GoodsMessageServiceImpl implements GoodsMessageService {
         List<String> list = shardedJedis.lrange(String.valueOf(voteReq.getGid()),0,-1);//首先获取该所有投了该gid的uid，放入list中
         for(String uid : list){//遍历逐个判断是否已经记录了有该uid记录，若有，则返回repeatVote
             if (uid.equals(  String.valueOf(voteReq.getUid())   )){
+                shardedJedis.close();
                 return result = "repeatVote";
             }
         }
@@ -55,6 +56,7 @@ public class GoodsMessageServiceImpl implements GoodsMessageService {
         }else{
             result="success";
         }
+        shardedJedis.close();
         return result;
     }
 }
