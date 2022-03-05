@@ -22,7 +22,7 @@ public class TestController {
     private ShardedJedisPool shardedJedisPool;
     @RequestMapping("/test")
     public String test(){
-        return "test";
+        return "test234";
     }
 
     @RequestMapping("/jsontestj")
